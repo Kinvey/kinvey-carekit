@@ -70,15 +70,29 @@ class CarePlanActivity: Entity {
     override func propertyMapping(map: Map) {
         identifier <- ("identifier", map[PersistableIdKey])
         groupIdentifier <- map["groupIdentifier"]
-        type <- map["type"]
+        //type <- map["type"]
         title <- map["title"]
         text <- map["text"]
         tintColor <- (map["tintColor"], UIColorTransform())
         instructions <- map["instructions"]
         imageURL <- map["imageURL"]
-        schedule <- map["schedule"]
+        //schedule <- map["schedule"]
         resultResettable <- map["resultResettable"]
-        userInfo <- map["userInfo"]
+        //userInfo <- map["userInfo"]
+    }
+    
+    var ockCarePlanActivity: OCKCarePlanActivity? {
+        return OCKCarePlanActivity(identifier: self.identifier!,
+                                   groupIdentifier: self.groupIdentifier,
+                                   type: self.type!,
+                                   title: self.title!,
+                                   text: self.text,
+                                   tintColor: self.tintColor,
+                                   instructions: self.instructions,
+                                   imageURL: self.imageURL,
+                                   schedule: self.schedule!.ockCareSchedule!,
+                                   resultResettable: self.resultResettable!,
+                                   userInfo: self.userInfo)
     }
     
 }

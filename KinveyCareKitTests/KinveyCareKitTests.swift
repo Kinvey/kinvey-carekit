@@ -16,6 +16,8 @@ class KinveyCareKitTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        Kinvey.sharedClient.initialize(appKey: "kid_S1Bd9cy9", appSecret: "5b1770f12e8c4563ad9fc4cc502e7f04")
     }
     
     override func tearDown() {
@@ -45,7 +47,67 @@ class KinveyCareKitTests: XCTestCase {
 //        XCTAssertEqual(json["userInfo"] as? [String : NSCoding], expected["userInfo"] as? [String : NSCoding])
     }
     
-    func testStoreInKinvey() { 
+    func testStoreInKinvey() {
+        
+        weak var expectationLogin = expectationWithDescription("Login")
+        if let _ = Client.sharedClient.activeUser {
+            expectationLogin?.fulfill()
+        }
+        else {
+            User.login(username: "kinvey", password: "12345") { user, error in
+                expectationLogin?.fulfill()
+            }
+
+        }
+
+        waitForExpectationsWithTimeout(30) { (error) in
+            expectationLogin = nil
+        }
+
+        weak var expectationSave = expectationWithDescription("Save")
+        
+        let searchPaths = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)
+        let applicationSupportPath = searchPaths[0]
+        let persistenceDirectoryURL = NSURL(fileURLWithPath: applicationSupportPath)
+
+        let cpStore = CarePlanStore(persistenceDirectoryURL: persistenceDirectoryURL, client: Client.sharedClient)
+        
+        cpStore.addActivity(OutdoorWalk().carePlanActivity()) { (success, error) in
+            if !success {
+                print(error?.localizedDescription)
+            }
+            expectationSave?.fulfill()
+        }
+        
+        
+//        let store:DataStore<CarePlanActivity> = DataStore<CarePlanActivity>.collection(.Network)
+//        store.save(CarePlanActivity(OutdoorWalk().carePlanActivity()), completionHandler: { (activity, error) in
+//            //complete
+//            print(activity)
+//            expectationSave?.fulfill()
+//        })
+        
+        waitForExpectationsWithTimeout(30) { (error) in
+            expectationSave = nil
+        }
+
+        
+        weak var expectationFind = expectationWithDescription("Find")
+        cpStore.activitiesWithCompletion { (success, activities, error) in
+            if !success {
+                print(error)
+            }
+            else {
+                print (activities)
+            }
+            
+            expectationFind?.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(30) { (error) in
+            expectationFind = nil
+        }
+        
     }
     
     func testPerformanceExample() {
