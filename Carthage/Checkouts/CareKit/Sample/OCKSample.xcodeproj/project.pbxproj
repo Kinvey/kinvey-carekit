@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		2436E4341CD18BFD00ABE381 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2436E4311CD18BED00ABE381 /* ResearchKit.framework */; };
 		2436E4351CD18BFD00ABE381 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2436E4311CD18BED00ABE381 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B55565771CC82FCA00513644 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55565711CC82F8D00513644 /* CareKit.framework */; };
-		B55565781CC82FCA00513644 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B55565711CC82F8D00513644 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967BFB9D1D626E5E00682B20 /* KinveyCareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967BFB9C1D626E5E00682B20 /* KinveyCareKit.framework */; };
+		967BFB9E1D626E6B00682B20 /* KinveyCareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 967BFB9C1D626E5E00682B20 /* KinveyCareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967BFBA21D626FF500682B20 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967BFBA11D626FF500682B20 /* Kinvey.framework */; };
+		967BFBA31D626FFF00682B20 /* Kinvey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 967BFBA11D626FF500682B20 /* Kinvey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B555759C1CB3DB8C0028DC37 /* NSCalendar+Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B555759B1CB3DB8C0028DC37 /* NSCalendar+Dates.swift */; };
 		B555759E1CB3DBBE0028DC37 /* OCKInsightItem+EmptyMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B555759D1CB3DBBE0028DC37 /* OCKInsightItem+EmptyMessage.swift */; };
 		B56848B61CB5085E00D190EE /* InsightsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56848B51CB5085E00D190EE /* InsightsBuilder.swift */; };
@@ -58,6 +60,13 @@
 			remoteGlobalIDString = B183A4731A8535D100C76870;
 			remoteInfo = ResearchKit;
 		};
+		967BFB9F1D626E8500682B20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B5C100AE1CB12F0C00FAD7E8 /* CareKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8605A5B91C4F04EC00DD65FF;
+			remoteInfo = CareKit;
+		};
 		B55565701CC82F8D00513644 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B5C100AE1CB12F0C00FAD7E8 /* CareKit.xcodeproj */;
@@ -72,13 +81,6 @@
 			remoteGlobalIDString = 8605A5C41C4F04EC00DD65FF;
 			remoteInfo = CareKitTests;
 		};
-		B55565791CC82FCA00513644 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5C100AE1CB12F0C00FAD7E8 /* CareKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8605A5B91C4F04EC00DD65FF;
-			remoteInfo = CareKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,8 +90,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				967BFBA31D626FFF00682B20 /* Kinvey.framework in Embed Frameworks */,
+				967BFB9E1D626E6B00682B20 /* KinveyCareKit.framework in Embed Frameworks */,
 				2436E4351CD18BFD00ABE381 /* ResearchKit.framework in Embed Frameworks */,
-				B55565781CC82FCA00513644 /* CareKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +101,8 @@
 
 /* Begin PBXFileReference section */
 		2436E42A1CD18BEC00ABE381 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = ../dependency/ResearchKit.xcodeproj; sourceTree = "<group>"; };
+		967BFB9C1D626E5E00682B20 /* KinveyCareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KinveyCareKit.framework; path = "../../../../../../Library/Developer/Xcode/DerivedData/KinveyCareKit-bexmuxvkhtnsgdfhbbjabitzxqyp/Build/Products/Debug-iphonesimulator/KinveyCareKit.framework"; sourceTree = "<group>"; };
+		967BFBA11D626FF500682B20 /* Kinvey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kinvey.framework; path = "../../../../Kinvey-3.0.23/Kinvey.framework"; sourceTree = "<group>"; };
 		B555759B1CB3DB8C0028DC37 /* NSCalendar+Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+Dates.swift"; sourceTree = "<group>"; };
 		B555759D1CB3DBBE0028DC37 /* OCKInsightItem+EmptyMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OCKInsightItem+EmptyMessage.swift"; sourceTree = "<group>"; };
 		B56848B51CB5085E00D190EE /* InsightsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsBuilder.swift; sourceTree = "<group>"; };
@@ -132,8 +137,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				967BFBA21D626FF500682B20 /* Kinvey.framework in Frameworks */,
+				967BFB9D1D626E5E00682B20 /* KinveyCareKit.framework in Frameworks */,
 				2436E4341CD18BFD00ABE381 /* ResearchKit.framework in Frameworks */,
-				B55565771CC82FCA00513644 /* CareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +167,8 @@
 		B555657F1CC82FEF00513644 /* Linked frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				967BFBA11D626FF500682B20 /* Kinvey.framework */,
+				967BFB9C1D626E5E00682B20 /* KinveyCareKit.framework */,
 				2436E42A1CD18BEC00ABE381 /* ResearchKit.xcodeproj */,
 				B5C100AE1CB12F0C00FAD7E8 /* CareKit.xcodeproj */,
 			);
@@ -263,7 +271,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				B555657A1CC82FCA00513644 /* PBXTargetDependency */,
+				967BFBA01D626E8500682B20 /* PBXTargetDependency */,
 				2436E4371CD18BFD00ABE381 /* PBXTargetDependency */,
 			);
 			name = OCKSample;
@@ -399,10 +407,10 @@
 			name = ResearchKit;
 			targetProxy = 2436E4361CD18BFD00ABE381 /* PBXContainerItemProxy */;
 		};
-		B555657A1CC82FCA00513644 /* PBXTargetDependency */ = {
+		967BFBA01D626E8500682B20 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CareKit;
-			targetProxy = B55565791CC82FCA00513644 /* PBXContainerItemProxy */;
+			targetProxy = 967BFB9F1D626E8500682B20 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -516,6 +524,7 @@
 				CODE_SIGN_ENTITLEMENTS = OCKSample/OCKSample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "../../../../Kinvey-3.0.23";
 				INFOPLIST_FILE = OCKSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CareKit";
@@ -530,6 +539,7 @@
 				CODE_SIGN_ENTITLEMENTS = OCKSample/OCKSample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = "../../../../Kinvey-3.0.23";
 				INFOPLIST_FILE = OCKSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CareKit";

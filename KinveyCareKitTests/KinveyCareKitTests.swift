@@ -93,7 +93,8 @@ class KinveyCareKitTests: XCTestCase {
 
         
         weak var expectationFind = expectationWithDescription("Find")
-        cpStore.activitiesWithCompletion { (success, activities, error) in
+        //cpStore.activitiesWithCompletion { (success, activities, error) in
+        cpStore.activitiesWithType(OCKCarePlanActivityType.Intervention) { (success, activities, error) in
             if !success {
                 print(error)
             }

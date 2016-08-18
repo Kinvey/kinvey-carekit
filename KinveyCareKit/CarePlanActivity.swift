@@ -12,7 +12,7 @@ import Realm
 
 class CarePlanActivity: Entity {
     
-    var identifier: String?
+    //var identifier: String?
     var groupIdentifier: String?
     var type: OCKCarePlanActivityType?
     var title: String?
@@ -24,8 +24,11 @@ class CarePlanActivity: Entity {
     var resultResettable: Bool?
     var userInfo: [String : NSCoding]?
     
-    init(_ activity: OCKCarePlanActivity) {
-        identifier = activity.identifier
+    
+    convenience init(_ activity: OCKCarePlanActivity) {
+        self.init()
+        
+        //identifier = activity.identifier
         groupIdentifier = activity.groupIdentifier
         type = activity.type
         title = activity.title
@@ -37,30 +40,6 @@ class CarePlanActivity: Entity {
         resultResettable = activity.resultResettable
         userInfo = activity.userInfo
         
-        super.init()
-    }
-    
-    required init?(_ map: Map) {
-        var identifier: String?
-        identifier <- map[PersistableIdKey]
-        guard let _ = identifier else {
-            super.init()
-            return nil
-        }
-        
-        super.init(map)
-    }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init(realm: realm, schema: schema)
-    }
-    
-    required init(value: AnyObject, schema: RLMSchema) {
-        super.init(value: value, schema: schema)
-    }
-    
-    required init() {
-        super.init()
     }
     
     override class func collectionName() -> String {
@@ -68,21 +47,23 @@ class CarePlanActivity: Entity {
     }
     
     override func propertyMapping(map: Map) {
-        identifier <- ("identifier", map[PersistableIdKey])
+        super.propertyMapping(map)
+        
+        //identifier <- ("identifier", map[PersistableIdKey])
         groupIdentifier <- map["groupIdentifier"]
-        //type <- map["type"]
+        type <- map["type"]
         title <- map["title"]
         text <- map["text"]
         tintColor <- (map["tintColor"], UIColorTransform())
         instructions <- map["instructions"]
         imageURL <- map["imageURL"]
-        //schedule <- map["schedule"]
+        schedule <- map["schedule"]
         resultResettable <- map["resultResettable"]
-        //userInfo <- map["userInfo"]
+        userInfo <- (map["userInfo"], UserInfoTransform())
     }
     
     var ockCarePlanActivity: OCKCarePlanActivity? {
-        return OCKCarePlanActivity(identifier: self.identifier!,
+        return OCKCarePlanActivity(identifier: self.entityId!,
                                    groupIdentifier: self.groupIdentifier,
                                    type: self.type!,
                                    title: self.title!,

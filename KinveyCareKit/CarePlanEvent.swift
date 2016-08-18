@@ -8,6 +8,7 @@
 
 import Kinvey
 import CareKit
+import Realm
 
 class CarePlanEvent: Entity {
     
@@ -18,19 +19,38 @@ class CarePlanEvent: Entity {
     var state: OCKCarePlanEventState?
     var result: OCKCarePlanEventResult?
     
-//    init(event: OCKCarePlanEvent) {
-//        occurrenceIndexOfDay = event.occurrenceIndexOfDay
-//        numberOfDaysSinceStart = event.numberOfDaysSinceStart
-//        date = event.date
-//        activity = CarePlanActivity(event.activity)
-//        state = event.state
-//        result = event.result
-//        
-//        super.init()
-//    }
+    init(event: OCKCarePlanEvent) {
+        occurrenceIndexOfDay = event.occurrenceIndexOfDay
+        numberOfDaysSinceStart = event.numberOfDaysSinceStart
+        date = event.date
+        activity = CarePlanActivity(event.activity)
+        state = event.state
+        result = event.result
+        
+        super.init()
+    }
     
-    override class func collectionName() -> String {
-        return "Event"
+    required init?(_ map: Map) {
+        var identifier: String?
+        identifier <- map[PersistableIdKey]
+        guard let _ = identifier else {
+            super.init()
+            return nil
+        }
+        
+        super.init(map)
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: AnyObject, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    required init() {
+        super.init()
     }
     
 }

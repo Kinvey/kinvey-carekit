@@ -9,29 +9,34 @@
 /* Begin PBXBuildFile section */
 		570CBC121D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CBC111D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift */; };
 		570CBC131D5A940B007FFBA3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */; };
-		570CBC141D5A9424007FFBA3 /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57299BB41D5A80FC005ED1F7 /* UIColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57299BB31D5A80FC005ED1F7 /* UIColorTransform.swift */; };
 		57299BB71D5A8669005ED1F7 /* CareSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57299BB61D5A8669005ED1F7 /* CareSchedule.swift */; };
-		57299BB91D5A8BB8005ED1F7 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57299BB81D5A8BB8005ED1F7 /* Kinvey.framework */; };
 		577ECFEF1D5A5B65001FFEE4 /* KinveyCareKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 577ECFEE1D5A5B65001FFEE4 /* KinveyCareKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		577ECFF61D5A5B65001FFEE4 /* KinveyCareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */; };
 		577ECFFB1D5A5B65001FFEE4 /* KinveyCareKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ECFFA1D5A5B65001FFEE4 /* KinveyCareKitTests.swift */; };
 		577ED0061D5A5BB3001FFEE4 /* KinveyCareKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0051D5A5BB3001FFEE4 /* KinveyCareKit.swift */; };
 		577ED0171D5A64DE001FFEE4 /* CarePlanStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0161D5A64DE001FFEE4 /* CarePlanStore.swift */; };
 		577ED0281D5A6632001FFEE4 /* CarePlanActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0271D5A6632001FFEE4 /* CarePlanActivity.swift */; };
-		577ED02D1D5A675D001FFEE4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02B1D5A675D001FFEE4 /* Realm.framework */; };
-		577ED02E1D5A675D001FFEE4 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */; };
 		577ED0311D5A6CDF001FFEE4 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0301D5A6CDF001FFEE4 /* Activity.swift */; };
 		577ED0331D5A6CFD001FFEE4 /* OutdoorWalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0321D5A6CFD001FFEE4 /* OutdoorWalk.swift */; };
 		577ED0351D5A6D08001FFEE4 /* HamstringStretch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0341D5A6D08001FFEE4 /* HamstringStretch.swift */; };
 		577ED0371D5A6D0E001FFEE4 /* TakeMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0361D5A6D0E001FFEE4 /* TakeMedication.swift */; };
 		577ED0391D5A6DAD001FFEE4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0381D5A6DAD001FFEE4 /* Colors.swift */; };
-		577ED03B1D5A6DED001FFEE4 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; };
 		577ED03C1D5A6E08001FFEE4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02B1D5A675D001FFEE4 /* Realm.framework */; };
-		577ED03E1D5A6E38001FFEE4 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ED02B1D5A675D001FFEE4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		577ED0431D5A6E99001FFEE4 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ED0421D5A6E95001FFEE4 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		577ED0451D5A6EAD001FFEE4 /* PromiseKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ED0441D5A6EAA001FFEE4 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		578B7B4C1D5ABEF700E9426F /* CarePlanEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B7B4B1D5ABEF700E9426F /* CarePlanEvent.swift */; };
+		967BFB8C1D62403600682B20 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; };
+		967BFB8D1D6255AC00682B20 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; };
+		967BFB8E1D6255B000682B20 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57299BB81D5A8BB8005ED1F7 /* Kinvey.framework */; };
+		967BFB921D62583700682B20 /* CareKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967BFB951D626D9800682B20 /* KinveyCareKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967BFBAC1D63D70500682B20 /* Kinvey.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 57299BB81D5A8BB8005ED1F7 /* Kinvey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967BFBAD1D63D70500682B20 /* PromiseKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ED0441D5A6EAA001FFEE4 /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967BFBAE1D63D70500682B20 /* KeychainAccess.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ED0421D5A6E95001FFEE4 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967BFBAF1D63D70500682B20 /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ED02B1D5A675D001FFEE4 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967BFBB01D63D70500682B20 /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96DA893B1D63D7EF00D466F6 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02B1D5A675D001FFEE4 /* Realm.framework */; };
+		96DA893C1D63D7F200D466F6 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */; };
+		96DA893E1D63FEDC00D466F6 /* UserInfoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA893D1D63FEDC00D466F6 /* UserInfoTransform.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +56,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				570CBC141D5A9424007FFBA3 /* RealmSwift.framework in CopyFiles */,
-				577ED0451D5A6EAD001FFEE4 /* PromiseKit.framework in CopyFiles */,
-				577ED0431D5A6E99001FFEE4 /* KeychainAccess.framework in CopyFiles */,
-				577ED03E1D5A6E38001FFEE4 /* Realm.framework in CopyFiles */,
+				967BFBAC1D63D70500682B20 /* Kinvey.framework in CopyFiles */,
+				967BFBAD1D63D70500682B20 /* PromiseKit.framework in CopyFiles */,
+				967BFBAE1D63D70500682B20 /* KeychainAccess.framework in CopyFiles */,
+				967BFBAF1D63D70500682B20 /* Realm.framework in CopyFiles */,
+				967BFBB01D63D70500682B20 /* RealmSwift.framework in CopyFiles */,
+				967BFB951D626D9800682B20 /* KinveyCareKit.framework in CopyFiles */,
+				967BFB921D62583700682B20 /* CareKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +72,7 @@
 		570CBC111D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComponentsTransform.swift; sourceTree = "<group>"; };
 		57299BB31D5A80FC005ED1F7 /* UIColorTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTransform.swift; sourceTree = "<group>"; };
 		57299BB61D5A8669005ED1F7 /* CareSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareSchedule.swift; sourceTree = "<group>"; };
-		57299BB81D5A8BB8005ED1F7 /* Kinvey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kinvey.framework; path = "../ios-library/Kinvey/build/Debug/Kinvey.framework"; sourceTree = "<group>"; };
+		57299BB81D5A8BB8005ED1F7 /* Kinvey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kinvey.framework; path = "Kinvey-3.0.24/Kinvey.framework"; sourceTree = "<group>"; };
 		577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KinveyCareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		577ECFEE1D5A5B65001FFEE4 /* KinveyCareKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KinveyCareKit.h; sourceTree = "<group>"; };
 		577ECFF01D5A5B65001FFEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,17 +82,18 @@
 		577ED0051D5A5BB3001FFEE4 /* KinveyCareKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyCareKit.swift; sourceTree = "<group>"; };
 		577ED0161D5A64DE001FFEE4 /* CarePlanStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarePlanStore.swift; sourceTree = "<group>"; };
 		577ED0271D5A6632001FFEE4 /* CarePlanActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarePlanActivity.swift; sourceTree = "<group>"; };
-		577ED02B1D5A675D001FFEE4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Kinvey-3.0.23/Realm.framework"; sourceTree = "<group>"; };
-		577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Kinvey-3.0.23/RealmSwift.framework"; sourceTree = "<group>"; };
+		577ED02B1D5A675D001FFEE4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Kinvey-3.0.24/Realm.framework"; sourceTree = "<group>"; };
+		577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Kinvey-3.0.24/RealmSwift.framework"; sourceTree = "<group>"; };
 		577ED0301D5A6CDF001FFEE4 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/Activity.swift; sourceTree = SOURCE_ROOT; };
 		577ED0321D5A6CFD001FFEE4 /* OutdoorWalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutdoorWalk.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/OutdoorWalk.swift; sourceTree = SOURCE_ROOT; };
 		577ED0341D5A6D08001FFEE4 /* HamstringStretch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HamstringStretch.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/HamstringStretch.swift; sourceTree = SOURCE_ROOT; };
 		577ED0361D5A6D0E001FFEE4 /* TakeMedication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeMedication.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/TakeMedication.swift; sourceTree = SOURCE_ROOT; };
 		577ED0381D5A6DAD001FFEE4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/Colors.swift; sourceTree = SOURCE_ROOT; };
-		577ED03A1D5A6DED001FFEE4 /* CareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CareKit.framework; path = "../CareKit/build/Debug-iphoneos/CareKit.framework"; sourceTree = "<group>"; };
-		577ED0421D5A6E95001FFEE4 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = "Kinvey-3.0.23/KeychainAccess.framework"; sourceTree = "<group>"; };
-		577ED0441D5A6EAA001FFEE4 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = "Kinvey-3.0.23/PromiseKit.framework"; sourceTree = "<group>"; };
+		577ED03A1D5A6DED001FFEE4 /* CareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CareKit.framework; path = Carthage/Build/iOS/CareKit.framework; sourceTree = "<group>"; };
+		577ED0421D5A6E95001FFEE4 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = "Kinvey-3.0.24/KeychainAccess.framework"; sourceTree = "<group>"; };
+		577ED0441D5A6EAA001FFEE4 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = "Kinvey-3.0.24/PromiseKit.framework"; sourceTree = "<group>"; };
 		578B7B4B1D5ABEF700E9426F /* CarePlanEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarePlanEvent.swift; sourceTree = "<group>"; };
+		96DA893D1D63FEDC00D466F6 /* UserInfoTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTransform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +101,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57299BB91D5A8BB8005ED1F7 /* Kinvey.framework in Frameworks */,
-				577ED03B1D5A6DED001FFEE4 /* CareKit.framework in Frameworks */,
-				577ED02D1D5A675D001FFEE4 /* Realm.framework in Frameworks */,
-				577ED02E1D5A675D001FFEE4 /* RealmSwift.framework in Frameworks */,
+				96DA893B1D63D7EF00D466F6 /* Realm.framework in Frameworks */,
+				967BFB8C1D62403600682B20 /* CareKit.framework in Frameworks */,
+				96DA893C1D63D7F200D466F6 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,8 +111,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				577ED03C1D5A6E08001FFEE4 /* Realm.framework in Frameworks */,
 				577ECFF61D5A5B65001FFEE4 /* KinveyCareKit.framework in Frameworks */,
+				967BFB8D1D6255AC00682B20 /* CareKit.framework in Frameworks */,
+				967BFB8E1D6255B000682B20 /* Kinvey.framework in Frameworks */,
+				577ED03C1D5A6E08001FFEE4 /* Realm.framework in Frameworks */,
 				570CBC131D5A940B007FFBA3 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +127,7 @@
 			children = (
 				57299BB31D5A80FC005ED1F7 /* UIColorTransform.swift */,
 				570CBC111D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift */,
+				96DA893D1D63FEDC00D466F6 /* UserInfoTransform.swift */,
 			);
 			name = Transformers;
 			sourceTree = "<group>";
@@ -300,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				577ED0061D5A5BB3001FFEE4 /* KinveyCareKit.swift in Sources */,
+				96DA893E1D63FEDC00D466F6 /* UserInfoTransform.swift in Sources */,
 				570CBC121D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift in Sources */,
 				577ED0171D5A64DE001FFEE4 /* CarePlanStore.swift in Sources */,
 				57299BB41D5A80FC005ED1F7 /* UIColorTransform.swift in Sources */,
@@ -434,7 +446,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Kinvey-3.0.23",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Kinvey-3.0.24",
 				);
 				INFOPLIST_FILE = KinveyCareKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -456,7 +469,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Kinvey-3.0.23",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Kinvey-3.0.24",
 				);
 				INFOPLIST_FILE = KinveyCareKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -472,7 +486,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Kinvey-3.0.23",
+					"$(PROJECT_DIR)/Kinvey-3.0.24",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = KinveyCareKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -486,7 +501,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Kinvey-3.0.23",
+					"$(PROJECT_DIR)/Kinvey-3.0.24",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = KinveyCareKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
