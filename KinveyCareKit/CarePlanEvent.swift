@@ -30,6 +30,11 @@ class CarePlanEvent: Entity {
         super.init()
     }
     
+    public override class func collectionName() -> String {
+        return "Event"
+    }
+
+    
     required init?(_ map: Map) {
         var identifier: String?
         identifier <- map[PersistableIdKey]
@@ -41,6 +46,23 @@ class CarePlanEvent: Entity {
         super.init(map)
     }
     
+    
+    override func propertyMapping(map: Map) {
+        super.propertyMapping(map)
+        
+        occurrenceIndexOfDay <- map["occurrenceIndexOfDay"]
+        numberOfDaysSinceStart <- map["numberOfDaysSinceStart"]
+        date <- (map["date"], NSDateComponentsTransform())
+        //activity <- (map["activity"], ActivityTransform())
+        activity <- map["activity"]
+        state <- map["state"]
+        result <- map["result"]
+    }
+    
+//    var ockCarePlanEvent: OCKCarePlanEvent? {
+//
+//    }
+
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
         super.init(realm: realm, schema: schema)
     }

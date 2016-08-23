@@ -28,7 +28,7 @@ class CarePlanActivity: Entity {
     convenience init(_ activity: OCKCarePlanActivity) {
         self.init()
         
-        //identifier = activity.identifier
+        entityId = activity.identifier
         groupIdentifier = activity.groupIdentifier
         type = activity.type
         title = activity.title
@@ -49,7 +49,6 @@ class CarePlanActivity: Entity {
     override func propertyMapping(map: Map) {
         super.propertyMapping(map)
         
-        //identifier <- ("identifier", map[PersistableIdKey])
         groupIdentifier <- map["groupIdentifier"]
         type <- map["type"]
         title <- map["title"]
@@ -59,7 +58,7 @@ class CarePlanActivity: Entity {
         imageURL <- map["imageURL"]
         schedule <- map["schedule"]
         resultResettable <- map["resultResettable"]
-        userInfo <- (map["userInfo"], UserInfoTransform())
+        //userInfo <- (map["userInfo"], UserInfoTransform())
     }
     
     var ockCarePlanActivity: OCKCarePlanActivity? {
@@ -75,5 +74,4 @@ class CarePlanActivity: Entity {
                                    resultResettable: self.resultResettable!,
                                    userInfo: self.userInfo)
     }
-    
 }

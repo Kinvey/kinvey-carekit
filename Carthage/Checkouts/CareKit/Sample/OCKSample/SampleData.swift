@@ -30,11 +30,12 @@
 
 import ResearchKit
 import CareKit
+import KinveyCareKit
 
 class SampleData: NSObject {
     
     // MARK: Properties
-
+    
     /// An array of `Activity`s used in the app.
     let activities: [Activity] = [
         OutdoorWalk(),

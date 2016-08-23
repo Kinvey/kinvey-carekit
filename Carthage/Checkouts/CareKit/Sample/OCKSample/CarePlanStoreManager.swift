@@ -29,6 +29,8 @@
  */
 
 import CareKit
+import Kinvey
+import KinveyCareKit
 
 class CarePlanStoreManager: NSObject {
     // MARK: Static Properties
@@ -39,7 +41,7 @@ class CarePlanStoreManager: NSObject {
     
     weak var delegate: CarePlanStoreManagerDelegate?
     
-    let store: OCKCarePlanStore
+    let store: CarePlanStore
     
     var insights: [OCKInsightItem] {
         return insightsBuilder.insights
@@ -60,7 +62,7 @@ class CarePlanStoreManager: NSObject {
         }
         
         // Create the store.
-        store = OCKCarePlanStore(persistenceDirectoryURL: persistenceDirectoryURL)
+        store = CarePlanStore(persistenceDirectoryURL: persistenceDirectoryURL)
         
         /*
             Create an `InsightsBuilder` to build insights based on the data in
