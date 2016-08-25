@@ -30,7 +30,7 @@ class CarePlanEvent: Entity {
         super.init()
     }
     
-    public override class func collectionName() -> String {
+    override class func collectionName() -> String {
         return "Event"
     }
 

@@ -10,13 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KinveyCareKitTests/KinveyCareKitTests.swift"
-            timestampString = "493242370.842096"
+            timestampString = "493670847.613953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "testStoreInKinvey()"
-            landmarkType = "5">
+            startingLineNumber = "137"
+            endingLineNumber = "137">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
