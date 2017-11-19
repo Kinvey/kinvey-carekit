@@ -7,6 +7,7 @@
 //
 
 import Kinvey
+import ObjectMapper
 
 class UserInfoTransform: TransformOf<[String : NSCoding], [String : AnyObject]> {
     

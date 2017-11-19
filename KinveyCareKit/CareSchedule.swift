@@ -13,17 +13,20 @@ import Realm
 class CareSchedule: Entity {
     
     var type: OCKCareScheduleType?
-    var startDate: NSDateComponents?
-    var endDate: NSDateComponents?
+    var startDate: DateComponents?
+    var endDate: DateComponents?
     var occurrences: [NSNumber]?
     var timeUnitsToSkip: UInt?
     
     var ockCareSchedule: OCKCareSchedule? {
-        if let startDate = startDate, let occurrences = occurrences, let timeUnitsToSkip = timeUnitsToSkip {
-            if type == .Daily {
-                return OCKCareSchedule.dailyScheduleWithStartDate(startDate, occurrencesPerDay: occurrences.first!.unsignedLongValue, daysToSkip: timeUnitsToSkip, endDate: endDate)
-            } else if type == .Weekly {
-                return OCKCareSchedule.weeklyScheduleWithStartDate(startDate, occurrencesOnEachDay: occurrences, weeksToSkip: timeUnitsToSkip, endDate: endDate)
+        if let startDate = startDate, let occurrences = occurrences, let timeUnitsToSkip = timeUnitsToSkip, let type = type {
+            switch type {
+            case .daily:
+                return OCKCareSchedule.dailySchedule(withStartDate: startDate, occurrencesPerDay: occurrences.first!.uintValue, daysToSkip: timeUnitsToSkip, endDate: endDate)
+            case .weekly:
+                return OCKCareSchedule.weeklySchedule(withStartDate: startDate, occurrencesOnEachDay: occurrences, weeksToSkip: timeUnitsToSkip, endDate: endDate)
+            case .other:
+                break
             }
         }
         return nil
@@ -39,15 +42,15 @@ class CareSchedule: Entity {
         super.init()
     }
     
-    required init?(_ map: Map) {
-        super.init(map)
+    required init?(map: Map) {
+        super.init(map: map)
     }
     
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
         super.init(realm: realm, schema: schema)
     }
     
-    required init(value: AnyObject, schema: RLMSchema) {
+    required init(value: Any, schema: RLMSchema) {
         super.init(value: value, schema: schema)
     }
     
@@ -55,12 +58,12 @@ class CareSchedule: Entity {
         super.init()
     }
     
-    override func propertyMapping(map: Map) {
-        type <- map["type"]
-        startDate <- (map["startDate"], NSDateComponentsTransform())
-        endDate <- (map["endDate"], NSDateComponentsTransform())
-        occurrences <- map["occurrences"]
-        timeUnitsToSkip <- map["timeUnitsToSkip"]
+    override func propertyMapping(_ map: Map) {
+        type <- ("type", map["type"])
+        startDate <- ("startDate", map["startDate"], NSDateComponentsTransform())
+        endDate <- ("endDate", map["endDate"], NSDateComponentsTransform())
+        occurrences <- ("occurrences", map["occurrences"])
+        timeUnitsToSkip <- ("timeUnitsToSkip", map["timeUnitsToSkip"])
     }
     
     override class func primaryKey() -> String? {

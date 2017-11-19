@@ -19,7 +19,7 @@ class CarePlanActivity: Entity {
     var text: String?
     var tintColor: UIColor?
     var instructions: String?
-    var imageURL: NSURL?
+    var imageURL: URL?
     var schedule: CareSchedule?
     var resultResettable: Bool?
     var userInfo: [String : NSCoding]?
@@ -46,19 +46,19 @@ class CarePlanActivity: Entity {
         return "Activity"
     }
     
-    override func propertyMapping(map: Map) {
+    override func propertyMapping(_ map: Map) {
         super.propertyMapping(map)
         
-        groupIdentifier <- map["groupIdentifier"]
-        type <- map["type"]
-        title <- map["title"]
-        text <- map["text"]
-        tintColor <- (map["tintColor"], UIColorTransform())
-        instructions <- map["instructions"]
-        imageURL <- map["imageURL"]
-        schedule <- map["schedule"]
-        resultResettable <- map["resultResettable"]
-        //userInfo <- (map["userInfo"], UserInfoTransform())
+        groupIdentifier <- ("groupIdentifier", map["groupIdentifier"])
+        type <- ("type", map["type"])
+        title <- ("title", map["title"])
+        text <- ("text", map["text"])
+        tintColor <- ("tintColor", map["tintColor"], UIColorTransform())
+        instructions <- ("instructions", map["instructions"])
+        imageURL <- ("imageURL", map["imageURL"])
+        schedule <- ("schedule", map["schedule"])
+        resultResettable <- ("resultResettable", map["resultResettable"])
+        userInfo <- ("userInfo", map["userInfo"], UserInfoTransform())
     }
     
     var ockCarePlanActivity: OCKCarePlanActivity? {

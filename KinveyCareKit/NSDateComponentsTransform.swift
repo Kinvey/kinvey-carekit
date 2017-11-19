@@ -7,13 +7,14 @@
 //
 
 import Kinvey
+import ObjectMapper
 
-class NSDateComponentsTransform: TransformOf<NSDateComponents, [String : AnyObject]> {
+class NSDateComponentsTransform: TransformOf<DateComponents, [String : Any]> {
     
     init() {
-        super.init(fromJSON: { (json) -> NSDateComponents? in
+        super.init(fromJSON: { (json) -> DateComponents? in
             if let json = json {
-                let dateComponents = NSDateComponents()
+                var dateComponents = DateComponents()
                 if let era = json["era"] as? Int {
                     dateComponents.era = era
                 }
@@ -56,29 +57,29 @@ class NSDateComponentsTransform: TransformOf<NSDateComponents, [String : AnyObje
                 if let yearForWeekOfYear = json["yearForWeekOfYear"] as? Int {
                     dateComponents.yearForWeekOfYear = yearForWeekOfYear
                 }
-                if let calendar = json["calendar"] as? NSCalendar {
+                if let calendar = json["calendar"] as? Calendar {
                     dateComponents.calendar = calendar
                 }
-                if let timeZone = json["timeZone"] as? NSTimeZone {
+                if let timeZone = json["timeZone"] as? TimeZone {
                     dateComponents.timeZone = timeZone
                 }
                 return dateComponents
             }
             return nil
-        }, toJSON: { (dateComponents) -> [String : AnyObject]? in
+        }, toJSON: { (dateComponents) -> [String : Any]? in
             if let dateComponents = dateComponents {
-                var json = [String : AnyObject]()
-                if dateComponents.era > 0 {
-                    json["era"] = dateComponents.era
+                var json = [String : Any]()
+                if let era = dateComponents.era {
+                    json["era"] = era
                 }
-                if dateComponents.year > 0 {
-                    json["year"] = dateComponents.year
+                if let year = dateComponents.year {
+                    json["year"] = year
                 }
-                if dateComponents.month > 0 {
-                    json["month"] = dateComponents.month
+                if let month = dateComponents.month {
+                    json["month"] = month
                 }
-                if dateComponents.day > 0 {
-                    json["day"] = dateComponents.day
+                if let day = dateComponents.day {
+                    json["day"] = day
                 }
                 if let calendar = dateComponents.calendar {
                     json["calendar"] = calendar
