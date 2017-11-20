@@ -62,16 +62,18 @@ class CarePlanActivity: Entity {
     }
     
     var ockCarePlanActivity: OCKCarePlanActivity? {
-        return OCKCarePlanActivity(identifier: self.entityId!,
-                                   groupIdentifier: self.groupIdentifier,
-                                   type: self.type!,
-                                   title: self.title!,
-                                   text: self.text,
-                                   tintColor: self.tintColor,
-                                   instructions: self.instructions,
-                                   imageURL: self.imageURL,
-                                   schedule: self.schedule!.ockCareSchedule!,
-                                   resultResettable: self.resultResettable!,
-                                   userInfo: self.userInfo)
+        return OCKCarePlanActivity(
+            identifier: self.entityId!,
+            groupIdentifier: self.groupIdentifier,
+            type: self.type!,
+            title: self.title!,
+            text: self.text,
+            tintColor: self.tintColor,
+            instructions: self.instructions,
+            imageURL: self.imageURL,
+            schedule: self.schedule!.ockCareSchedule!,
+            resultResettable: self.resultResettable!,
+            userInfo: self.userInfo
+        )
     }
 }

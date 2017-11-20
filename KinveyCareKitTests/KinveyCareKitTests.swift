@@ -15,9 +15,23 @@ class KinveyCareKitTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         
-        Kinvey.sharedClient.initialize(appKey: "kid_S1Bd9cy9", appSecret: "5b1770f12e8c4563ad9fc4cc502e7f04")
+        weak var expectationInitialize = expectation(description: "Kinvey Initialize")
+        
+        Kinvey.sharedClient.initialize(appKey: "kid_S1Bd9cy9", appSecret: "5b1770f12e8c4563ad9fc4cc502e7f04") {
+            switch $0 {
+            case .success(_):
+                break
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+            
+            expectationInitialize?.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30) { (error) in
+            expectationInitialize = nil
+        }
     }
     
     override func tearDown() {
@@ -30,18 +44,19 @@ class KinveyCareKitTests: XCTestCase {
         let json = CarePlanActivity(OutdoorWalk().carePlanActivity()).toJSON()
         
 //        XCTAssertEqual(json.count, expected.count)
-        XCTAssertEqual(json[PersistableIdKey] as? String, activity.identifier)
+        XCTAssertEqual(json[Entity.Key.entityId] as? String, activity.identifier)
         XCTAssertEqual(json["groupIdentifier"] as? String, activity.groupIdentifier)
         XCTAssertEqual(json["type"] as? Int, activity.type.rawValue)
         XCTAssertEqual(json["title"] as? String, activity.title)
         XCTAssertEqual(json["text"] as? String, activity.text)
         XCTAssertEqual(UIColorTransform().transformFromJSON(json["tintColor"] as? [String : CGFloat]), activity.tintColor)
         XCTAssertEqual(json["instructions"] as? String, activity.instructions)
-        XCTAssertEqual(json["imageURL"] as? NSURL, activity.imageURL)
-        let scheduleJson = json["schedule"] as? [String : AnyObject]
+        XCTAssertEqual(json["imageURL"] as? URL, activity.imageURL)
+        let scheduleJson = json["schedule"] as? [String : Any]
         XCTAssertNotNil(scheduleJson)
         if let scheduleJson = scheduleJson {
-            XCTAssertEqual(CareSchedule(JSON: scheduleJson)!.ockCareSchedule, activity.schedule)
+            let careSchedule = CareSchedule(JSON: scheduleJson)
+            XCTAssertEqual(careSchedule?.ockCareSchedule, activity.schedule)
         }
         XCTAssertEqual(json["resultResettable"] as? Bool, activity.resultResettable)
 //        XCTAssertEqual(json["userInfo"] as? [String : NSCoding], expected["userInfo"] as? [String : NSCoding])
@@ -49,7 +64,7 @@ class KinveyCareKitTests: XCTestCase {
     
     func testStoreInKinvey() {
         
-        weak var expectationLogin = expectationWithDescription("Login")
+        weak var expectationLogin = expectation(description: "Login")
         if let _ = Client.sharedClient.activeUser {
             expectationLogin?.fulfill()
         }
@@ -60,52 +75,51 @@ class KinveyCareKitTests: XCTestCase {
 
         }
 
-        waitForExpectationsWithTimeout(30) { (error) in
+        waitForExpectations(timeout: 30) { (error) in
             expectationLogin = nil
         }
 
-        weak var expectationSave = expectationWithDescription("Save")
+        weak var expectationSave = expectation(description: "Save")
         
-        let searchPaths = NSSearchPathForDirectoriesInDomains(.ApplicationSupportDirectory, .UserDomainMask, true)
+        let searchPaths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
         let applicationSupportPath = searchPaths[0]
-        let persistenceDirectoryURL = NSURL(fileURLWithPath: applicationSupportPath)
+        let persistenceDirectoryURL = URL(fileURLWithPath: applicationSupportPath)
 
-        let cpStore = CarePlanStore(persistenceDirectoryURL: persistenceDirectoryURL, client: Client.sharedClient)
+        let cpStore = CarePlanStore(persistenceDirectoryURL: persistenceDirectoryURL)
         
-        cpStore.addActivity(OutdoorWalk().carePlanActivity()) { (success, error) in
-            if !success {
-                print(error?.localizedDescription)
+        cpStore.add(OutdoorWalk().carePlanActivity()) { (success, error) in
+            if let error = error {
+                print(error.localizedDescription)
             }
             expectationSave?.fulfill()
         }
         
         
-//        let store:DataStore<CarePlanActivity> = DataStore<CarePlanActivity>.collection(.Network)
+//        let store:DataStore<CarePlanActivity> = DataStore<CarePlanActivity>.collection(.network)
 //        store.save(CarePlanActivity(OutdoorWalk().carePlanActivity()), completionHandler: { (activity, error) in
 //            //complete
 //            print(activity)
 //            expectationSave?.fulfill()
 //        })
         
-        waitForExpectationsWithTimeout(30) { (error) in
+        waitForExpectations(timeout: 30) { (error) in
             expectationSave = nil
         }
 
         
-        weak var expectationFind = expectationWithDescription("Find")
+        weak var expectationFind = expectation(description: "Find")
         //cpStore.activitiesWithCompletion { (success, activities, error) in
-        cpStore.activitiesWithType(OCKCarePlanActivityType.Intervention) { (success, activities, error) in
-            if !success {
+        cpStore.activities(with: OCKCarePlanActivityType.intervention) { (success, activities, error) in
+            if let error = error {
                 print(error)
-            }
-            else {
+            } else {
                 print (activities)
             }
             
             expectationFind?.fulfill()
         }
         
-        waitForExpectationsWithTimeout(30) { (error) in
+        waitForExpectations(timeout: 30) { (error) in
             expectationFind = nil
         }
         
@@ -113,7 +127,7 @@ class KinveyCareKitTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }

@@ -28,16 +28,6 @@ public class CarePlanStore: OCKCarePlanStore {
     }()
     
     public init(persistenceDirectoryURL URL: URL, client: Client = sharedClient) {
-        let client = Client.sharedClient
-        client.initialize(appKey: "kid_S1Bd9cy9", appSecret: "5b1770f12e8c4563ad9fc4cc502e7f04")
-        
-        if let _ = Client.sharedClient.activeUser {
-            
-        } else {
-            User.login(username: "kinvey", password: "12345") { user, error in
-                //   print (user)
-            }
-        }
         self.client = client
         self.client.logNetworkEnabled = true
         super.init(persistenceDirectoryURL: URL)
@@ -46,14 +36,12 @@ public class CarePlanStore: OCKCarePlanStore {
     public override func add(_ activity: OCKCarePlanActivity, completion: @escaping (Bool, Swift.Error?) -> Void) {
         //network
         let kActivity = CarePlanActivity(activity)
-        storeActivity.save(kActivity) { kActivity, error in
-            if let _ = kActivity {
-                //local
+        storeActivity.save(kActivity, options: nil) {
+            switch $0 {
+            case .success(_):
                 super.add(activity, completion: completion)
-            } else if let error = error {
+            case .failure(let error):
                 completion(false, error)
-            } else {
-                completion(false, Kinvey.Error.invalidResponse(httpResponse: nil, data: nil))
             }
         }
     }
@@ -61,68 +49,65 @@ public class CarePlanStore: OCKCarePlanStore {
     public override func activities(completion: @escaping (Bool, [OCKCarePlanActivity], Swift.Error?) -> Void) {
         //super.activities(completion: completion)      //return local data from CoreData
         
-        storeActivity.find () { (kActivities, error) in
+        storeActivity.find(options: nil) { (result: Result<AnyRandomAccessCollection<CarePlanActivity>, Swift.Error>) in
             var activities = [OCKCarePlanActivity]()
-            if let _ = kActivities {
-                for kActivity in kActivities! {
+            switch result {
+            case .success(let kActivities):
+                for kActivity in kActivities {
                     if let ockActivity = kActivity.ockCarePlanActivity {
                         activities.append(ockActivity)
                     }
-                    
                 }
-                completion(true, activities, error)
-            }
-            else {
+                completion(true, activities, nil)
+            case .failure(let error):
                 completion(false, activities, error)
             }
-            
         }
     }
     
     public override func activity(forIdentifier identifier: String, completion: @escaping (Bool, OCKCarePlanActivity?, Swift.Error?) -> Void) {
-        storeActivity.find(identifier) { (kActivity, error) in
-            if let ockActivity = kActivity?.ockCarePlanActivity {
-                completion(true, ockActivity, error as? NSError)
-            } else {
-                completion(false, nil, error as? NSError)
+        storeActivity.find(identifier, options: nil) {
+            switch $0 {
+            case .success(let kActivity):
+                completion(true, kActivity.ockCarePlanActivity, nil)
+            case .failure(let error):
+                completion(false, nil, error)
             }
         }
     }
     
     public override func activities(withGroupIdentifier groupIdentifier: String, completion: @escaping (Bool, [OCKCarePlanActivity], Swift.Error?) -> Void) {
-        storeActivity.find(Query(format: "groupIdentifier == %@", groupIdentifier)) { (kActivities, error) in
+        storeActivity.find(Query(format: "groupIdentifier == %@", groupIdentifier), options: nil) { (result: Result<AnyRandomAccessCollection<CarePlanActivity>, Swift.Error>) in
             var activities = [OCKCarePlanActivity]()
-            if let _ = kActivities {
-                for kActivity in kActivities! {
-                    if let ockActivity = kActivity.ockCarePlanActivity {
-                        activities.append(ockActivity)
-                    }                    
-                }
-                completion(true, activities, error as? NSError)
-            }
-            else {
-                completion(false, activities, error as? NSError)
-            }            
-        }
-    }
-    
-    public override func activities(with type: OCKCarePlanActivityType, completion: @escaping (Bool, [OCKCarePlanActivity], Swift.Error?) -> Void) {
-        storeActivity.find(Query(format: "type == %@", type.rawValue)) { (kActivities, error) in
-            var activities = [OCKCarePlanActivity]()
-            if let _ = kActivities {
-                for kActivity in kActivities! {
+            switch result {
+            case .success(let kActivities):
+                for kActivity in kActivities {
                     if let ockActivity = kActivity.ockCarePlanActivity {
                         activities.append(ockActivity)
                     }
                 }
-                completion(true, activities, error)
-            }
-            else {
+                completion(true, activities, nil)
+            case .failure(let error):
                 completion(false, activities, error)
             }
         }
-        
-        
+    }
+    
+    public override func activities(with type: OCKCarePlanActivityType, completion: @escaping (Bool, [OCKCarePlanActivity], Swift.Error?) -> Void) {
+        storeActivity.find(Query(format: "type == %@", type.rawValue), options: nil) { (result: Result<AnyRandomAccessCollection<CarePlanActivity>, Swift.Error>) in
+            var activities = [OCKCarePlanActivity]()
+            switch result {
+            case .success(let kActivities):
+                for kActivity in kActivities {
+                    if let ockActivity = kActivity.ockCarePlanActivity {
+                        activities.append(ockActivity)
+                    }
+                }
+                completion(true, activities, nil)
+            case .failure(let error):
+                completion(false, activities, error)
+            }
+        }
     }
     
     public override func setEndDate(_ endDate: DateComponents, for activity: OCKCarePlanActivity, completion: @escaping (Bool, OCKCarePlanActivity?, Swift.Error?) -> Void) {
@@ -135,7 +120,8 @@ public class CarePlanStore: OCKCarePlanStore {
     
     public override func events(for activity: OCKCarePlanActivity, date: DateComponents, completion: @escaping ([OCKCarePlanEvent], Swift.Error?) -> Void) {
         super.events(for: activity, date: date, completion: completion)
-//        
+        
+        //TODO
 //        storeEvent.find(Query (format: "activityId == %@", activity.identifier)) { (kEvents, error) in
 //            var events = [OCKCarePlanEvent]()
 //            if let _ = kEvents {
@@ -155,15 +141,13 @@ public class CarePlanStore: OCKCarePlanStore {
     public override func update(_ event: OCKCarePlanEvent, with result: OCKCarePlanEventResult?, state: OCKCarePlanEventState, completion: @escaping (Bool, OCKCarePlanEvent?, Swift.Error?) -> Void) {
         //network
         let kEvent = CarePlanEvent(event: event)
-        storeEvent.save(kEvent) { kEvent, error in
-            if let _ = kEvent {
-                //local
+        storeEvent.save(kEvent, options: nil) {
+            switch $0 {
+            case .success(_):
                 super.update(event, with: result, state: state, completion: completion)
-                completion (true, event, error)
-            } else {
+            case .failure(let error):
                 completion (false, event, error)
             }
-            
         }
     }
     
