@@ -14,16 +14,12 @@ public class CarePlanStore: OCKCarePlanStore {
     let client: Client
     
     lazy var storeActivity: DataStore<CarePlanActivity> = {
-        while (self.client.activeUser == nil) {
-            RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
-        }
+        waitForActiveUser()
         return DataStore<CarePlanActivity>.collection(.network)
     }()
     
     lazy var storeEvent: DataStore<CarePlanEvent> = {
-        while (self.client.activeUser == nil) {
-            RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
-        }
+        waitForActiveUser()
         return DataStore<CarePlanEvent>.collection(.network)
     }()
     
@@ -31,6 +27,24 @@ public class CarePlanStore: OCKCarePlanStore {
         self.client = client
         self.client.logNetworkEnabled = true
         super.init(persistenceDirectoryURL: URL)
+    }
+    
+    private func waitForActiveUser() {
+        guard client.activeUser == nil else {
+            return
+        }
+        
+        let observer = CFRunLoopObserverCreateWithHandler(nil, CFRunLoopActivity.beforeWaiting.rawValue, true, 0) { observer, activity in
+            if self.client.activeUser != nil {
+                CFRunLoopStop(CFRunLoopGetCurrent())
+            } else {
+                CFRunLoopWakeUp(CFRunLoopGetCurrent())
+            }
+        }
+        
+        CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
+        CFRunLoopRunInMode(CFRunLoopMode.defaultMode, CFTimeInterval.infinity, false)
+        CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
     }
     
     public override func add(_ activity: OCKCarePlanActivity, completion: @escaping (Bool, Swift.Error?) -> Void) {

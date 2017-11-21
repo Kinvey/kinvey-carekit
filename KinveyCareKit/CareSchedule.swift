@@ -9,6 +9,7 @@
 import Kinvey
 import CareKit
 import Realm
+import ObjectMapper
 
 class CareSchedule: Entity {
     
@@ -43,7 +44,7 @@ class CareSchedule: Entity {
     }
     
     required init?(map: Map) {
-        super.init(map: map)
+        super.init()
     }
     
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
@@ -59,7 +60,7 @@ class CareSchedule: Entity {
     }
     
     override func propertyMapping(_ map: Map) {
-        type <- ("type", map["type"])
+        type <- ("type", map["type"], EnumTransform<OCKCareScheduleType>())
         startDate <- ("startDate", map["startDate"], NSDateComponentsTransform())
         endDate <- ("endDate", map["endDate"], NSDateComponentsTransform())
         occurrences <- ("occurrences", map["occurrences"])

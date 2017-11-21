@@ -9,6 +9,7 @@
 import Kinvey
 import CareKit
 import Realm
+import ObjectMapper
 
 class CarePlanActivity: Entity {
     
@@ -23,7 +24,6 @@ class CarePlanActivity: Entity {
     var schedule: CareSchedule?
     var resultResettable: Bool?
     var userInfo: [String : NSCoding]?
-    
     
     convenience init(_ activity: OCKCarePlanActivity) {
         self.init()
@@ -50,7 +50,7 @@ class CarePlanActivity: Entity {
         super.propertyMapping(map)
         
         groupIdentifier <- ("groupIdentifier", map["groupIdentifier"])
-        type <- ("type", map["type"])
+        type <- ("type", map["type"], EnumTransform<OCKCarePlanActivityType>())
         title <- ("title", map["title"])
         text <- ("text", map["text"])
         tintColor <- ("tintColor", map["tintColor"], UIColorTransform())

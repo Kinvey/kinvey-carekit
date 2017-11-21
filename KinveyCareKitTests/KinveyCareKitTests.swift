@@ -18,7 +18,7 @@ class KinveyCareKitTests: XCTestCase {
         
         weak var expectationInitialize = expectation(description: "Kinvey Initialize")
         
-        Kinvey.sharedClient.initialize(appKey: "kid_S1Bd9cy9", appSecret: "5b1770f12e8c4563ad9fc4cc502e7f04") {
+        Kinvey.sharedClient.initialize(appKey: "", appSecret: "") {
             switch $0 {
             case .success(_):
                 break
@@ -41,7 +41,7 @@ class KinveyCareKitTests: XCTestCase {
     
     func testActivitySerialization() {
         let activity = OutdoorWalk().carePlanActivity()
-        let json = CarePlanActivity(OutdoorWalk().carePlanActivity()).toJSON()
+        let json = CarePlanActivity(activity).toJSON()
         
 //        XCTAssertEqual(json.count, expected.count)
         XCTAssertEqual(json[Entity.Key.entityId] as? String, activity.identifier)
@@ -63,20 +63,40 @@ class KinveyCareKitTests: XCTestCase {
     }
     
     func testStoreInKinvey() {
+        let username = "kinvey"
+        let password = "12345"
         
         weak var expectationLogin = expectation(description: "Login")
+        
         if let _ = Client.sharedClient.activeUser {
             expectationLogin?.fulfill()
-        }
-        else {
-            User.login(username: "kinvey", password: "12345") { user, error in
-                expectationLogin?.fulfill()
+        } else {
+            User.login(username: username, password: password, options: nil) {
+                switch $0 {
+                case .success(_):
+                    expectationLogin?.fulfill()
+                case .failure(_):
+                    User.signup(username: username, password: password, options: nil) {
+                        switch $0 {
+                        case .success(_):
+                            break
+                        case .failure(let error):
+                            XCTFail(error.localizedDescription)
+                        }
+                        expectationLogin?.fulfill()
+                    }
+                }
             }
-
         }
 
         waitForExpectations(timeout: 30) { (error) in
             expectationLogin = nil
+        }
+        
+        XCTAssertNotNil(Client.sharedClient.activeUser)
+        
+        guard let activeUser = Client.sharedClient.activeUser else {
+            return
         }
 
         weak var expectationSave = expectation(description: "Save")
