@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A422F8DE2EF996D0A06F07B /* Pods_KinveyCareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C999C4A96C9C9DBDFA6230E /* Pods_KinveyCareKit.framework */; };
 		570CBC121D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570CBC111D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift */; };
-		570CBC131D5A940B007FFBA3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */; };
 		57299BB41D5A80FC005ED1F7 /* UIColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57299BB31D5A80FC005ED1F7 /* UIColorTransform.swift */; };
 		57299BB71D5A8669005ED1F7 /* CareSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57299BB61D5A8669005ED1F7 /* CareSchedule.swift */; };
 		577ECFEF1D5A5B65001FFEE4 /* KinveyCareKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 577ECFEE1D5A5B65001FFEE4 /* KinveyCareKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,17 +21,15 @@
 		577ED0351D5A6D08001FFEE4 /* HamstringStretch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0341D5A6D08001FFEE4 /* HamstringStretch.swift */; };
 		577ED0371D5A6D0E001FFEE4 /* TakeMedication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0361D5A6D0E001FFEE4 /* TakeMedication.swift */; };
 		577ED0391D5A6DAD001FFEE4 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ED0381D5A6DAD001FFEE4 /* Colors.swift */; };
-		577ED03C1D5A6E08001FFEE4 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02B1D5A675D001FFEE4 /* Realm.framework */; };
+		5786A3C61FC5219F000CDDC3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5786A3C41FC5219F000CDDC3 /* RealmSwift.framework */; };
+		5786A3C71FC5219F000CDDC3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5786A3C51FC5219F000CDDC3 /* Realm.framework */; };
 		578B7B4C1D5ABEF700E9426F /* CarePlanEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B7B4B1D5ABEF700E9426F /* CarePlanEvent.swift */; };
-		961DB38E1D665DDC00202003 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DA895F1D6654A800D466F6 /* Kinvey.framework */; };
-		961DB3971D6660FB00202003 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02B1D5A675D001FFEE4 /* Realm.framework */; };
-		961DB3981D66610200202003 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */; };
+		57F1AA071FC520FE00065982 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F1AA061FC520FE00065982 /* Kinvey.framework */; };
+		57F1AA081FC5210B00065982 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F1AA061FC520FE00065982 /* Kinvey.framework */; };
 		967BFB8C1D62403600682B20 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; };
 		967BFB8D1D6255AC00682B20 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; };
 		967BFB951D626D9800682B20 /* KinveyCareKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96DA893E1D63FEDC00D466F6 /* UserInfoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA893D1D63FEDC00D466F6 /* UserInfoTransform.swift */; };
-		96DA89601D6654A800D466F6 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96DA895F1D6654A800D466F6 /* Kinvey.framework */; };
-		F6D41914F4E071FA454D5B08 /* Pods_KinveyCareKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96805F350E4032934B9200AE /* Pods_KinveyCareKitTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +56,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0EF898802C816684BDDF61BF /* Pods-KinveyCareKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinveyCareKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-KinveyCareKit/Pods-KinveyCareKit.release.xcconfig"; sourceTree = "<group>"; };
-		2C999C4A96C9C9DBDFA6230E /* Pods_KinveyCareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinveyCareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570CBC111D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateComponentsTransform.swift; sourceTree = "<group>"; };
 		57299BB31D5A80FC005ED1F7 /* UIColorTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTransform.swift; sourceTree = "<group>"; };
 		57299BB61D5A8669005ED1F7 /* CareSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareSchedule.swift; sourceTree = "<group>"; };
@@ -74,23 +68,17 @@
 		577ED0051D5A5BB3001FFEE4 /* KinveyCareKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyCareKit.swift; sourceTree = "<group>"; };
 		577ED0161D5A64DE001FFEE4 /* CarePlanStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarePlanStore.swift; sourceTree = "<group>"; };
 		577ED0271D5A6632001FFEE4 /* CarePlanActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarePlanActivity.swift; sourceTree = "<group>"; };
-		577ED02B1D5A675D001FFEE4 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Kinvey-3.0.24/Realm.framework"; sourceTree = "<group>"; };
-		577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Kinvey-3.0.24/RealmSwift.framework"; sourceTree = "<group>"; };
 		577ED0301D5A6CDF001FFEE4 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Activity.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/Activity.swift; sourceTree = SOURCE_ROOT; };
 		577ED0321D5A6CFD001FFEE4 /* OutdoorWalk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutdoorWalk.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/OutdoorWalk.swift; sourceTree = SOURCE_ROOT; };
 		577ED0341D5A6D08001FFEE4 /* HamstringStretch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HamstringStretch.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/HamstringStretch.swift; sourceTree = SOURCE_ROOT; };
 		577ED0361D5A6D0E001FFEE4 /* TakeMedication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TakeMedication.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/TakeMedication.swift; sourceTree = SOURCE_ROOT; };
 		577ED0381D5A6DAD001FFEE4 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = Carthage/Checkouts/CareKit/Sample/OCKSample/Colors.swift; sourceTree = SOURCE_ROOT; };
 		577ED03A1D5A6DED001FFEE4 /* CareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CareKit.framework; path = Carthage/Build/iOS/CareKit.framework; sourceTree = "<group>"; };
-		577ED0421D5A6E95001FFEE4 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = "Kinvey-3.0.24/KeychainAccess.framework"; sourceTree = "<group>"; };
-		577ED0441D5A6EAA001FFEE4 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = "Kinvey-3.0.24/PromiseKit.framework"; sourceTree = "<group>"; };
+		5786A3C41FC5219F000CDDC3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		5786A3C51FC5219F000CDDC3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		578B7B4B1D5ABEF700E9426F /* CarePlanEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarePlanEvent.swift; sourceTree = "<group>"; };
-		57D0D2B78D0D6EADB11B2400 /* Pods-KinveyCareKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinveyCareKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KinveyCareKitTests/Pods-KinveyCareKitTests.release.xcconfig"; sourceTree = "<group>"; };
-		96805F350E4032934B9200AE /* Pods_KinveyCareKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KinveyCareKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57F1AA061FC520FE00065982 /* Kinvey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kinvey.framework; path = Carthage/Build/iOS/Kinvey.framework; sourceTree = "<group>"; };
 		96DA893D1D63FEDC00D466F6 /* UserInfoTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTransform.swift; sourceTree = "<group>"; };
-		96DA895F1D6654A800D466F6 /* Kinvey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kinvey.framework; path = "../../Library/Developer/Xcode/DerivedData/KinveyCareKit-bexmuxvkhtnsgdfhbbjabitzxqyp/Build/Products/Debug-iphonesimulator/Kinvey.framework"; sourceTree = "<group>"; };
-		9F467C78FAEC56120A0C3F94 /* Pods-KinveyCareKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinveyCareKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KinveyCareKitTests/Pods-KinveyCareKitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EE6EB6C37CB5F487A37971F8 /* Pods-KinveyCareKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KinveyCareKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KinveyCareKit/Pods-KinveyCareKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +86,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961DB38E1D665DDC00202003 /* Kinvey.framework in Frameworks */,
+				5786A3C71FC5219F000CDDC3 /* Realm.framework in Frameworks */,
+				57F1AA071FC520FE00065982 /* Kinvey.framework in Frameworks */,
 				967BFB8C1D62403600682B20 /* CareKit.framework in Frameworks */,
-				961DB3971D6660FB00202003 /* Realm.framework in Frameworks */,
-				961DB3981D66610200202003 /* RealmSwift.framework in Frameworks */,
-				0A422F8DE2EF996D0A06F07B /* Pods_KinveyCareKit.framework in Frameworks */,
+				5786A3C61FC5219F000CDDC3 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,12 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DA89601D6654A800D466F6 /* Kinvey.framework in Frameworks */,
+				57F1AA081FC5210B00065982 /* Kinvey.framework in Frameworks */,
 				577ECFF61D5A5B65001FFEE4 /* KinveyCareKit.framework in Frameworks */,
 				967BFB8D1D6255AC00682B20 /* CareKit.framework in Frameworks */,
-				577ED03C1D5A6E08001FFEE4 /* Realm.framework in Frameworks */,
-				570CBC131D5A940B007FFBA3 /* RealmSwift.framework in Frameworks */,
-				F6D41914F4E071FA454D5B08 /* Pods_KinveyCareKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +123,6 @@
 				577ECFF91D5A5B65001FFEE4 /* KinveyCareKitTests */,
 				577ED0261D5A6589001FFEE4 /* Frameworks */,
 				577ECFEC1D5A5B64001FFEE4 /* Products */,
-				644AAFD8D0A6D3C6ED87BEDE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,14 +164,10 @@
 		577ED0261D5A6589001FFEE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96DA895F1D6654A800D466F6 /* Kinvey.framework */,
+				5786A3C51FC5219F000CDDC3 /* Realm.framework */,
+				5786A3C41FC5219F000CDDC3 /* RealmSwift.framework */,
+				57F1AA061FC520FE00065982 /* Kinvey.framework */,
 				577ED03A1D5A6DED001FFEE4 /* CareKit.framework */,
-				577ED0441D5A6EAA001FFEE4 /* PromiseKit.framework */,
-				577ED0421D5A6E95001FFEE4 /* KeychainAccess.framework */,
-				577ED02B1D5A675D001FFEE4 /* Realm.framework */,
-				577ED02C1D5A675D001FFEE4 /* RealmSwift.framework */,
-				2C999C4A96C9C9DBDFA6230E /* Pods_KinveyCareKit.framework */,
-				96805F350E4032934B9200AE /* Pods_KinveyCareKitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -202,17 +181,6 @@
 				577ED0361D5A6D0E001FFEE4 /* TakeMedication.swift */,
 			);
 			name = Activities;
-			sourceTree = "<group>";
-		};
-		644AAFD8D0A6D3C6ED87BEDE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EE6EB6C37CB5F487A37971F8 /* Pods-KinveyCareKit.debug.xcconfig */,
-				0EF898802C816684BDDF61BF /* Pods-KinveyCareKit.release.xcconfig */,
-				9F467C78FAEC56120A0C3F94 /* Pods-KinveyCareKitTests.debug.xcconfig */,
-				57D0D2B78D0D6EADB11B2400 /* Pods-KinveyCareKitTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,11 +201,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 577ECFFF1D5A5B65001FFEE4 /* Build configuration list for PBXNativeTarget "KinveyCareKit" */;
 			buildPhases = (
-				02317A14C46F0E50E928EB14 /* [CP] Check Pods Manifest.lock */,
 				577ECFE61D5A5B64001FFEE4 /* Sources */,
 				577ECFE71D5A5B64001FFEE4 /* Frameworks */,
 				577ECFE81D5A5B64001FFEE4 /* Headers */,
-				0A6DCF51FF8AF803A863C079 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,13 +218,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 577ED0021D5A5B65001FFEE4 /* Build configuration list for PBXNativeTarget "KinveyCareKitTests" */;
 			buildPhases = (
-				FE1148C25BBDA8386DA34EC6 /* [CP] Check Pods Manifest.lock */,
 				577ECFF11D5A5B65001FFEE4 /* Sources */,
 				577ECFF21D5A5B65001FFEE4 /* Frameworks */,
 				577ECFF31D5A5B65001FFEE4 /* Resources */,
 				577ED03D1D5A6E29001FFEE4 /* CopyFiles */,
-				01ACC1BDFB9B6C456C70DCF6 /* [CP] Embed Pods Frameworks */,
-				8D0CE575568CE95122582807 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -315,109 +278,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		01ACC1BDFB9B6C456C70DCF6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KinveyCareKitTests/Pods-KinveyCareKitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CareKit/CareKit.framework",
-				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
-				"${BUILT_PRODUCTS_DIR}/Kinvey/Kinvey.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
-				"${BUILT_PRODUCTS_DIR}/PubNub/PubNub.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CareKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kinvey.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PubNub.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KinveyCareKitTests/Pods-KinveyCareKitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		02317A14C46F0E50E928EB14 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KinveyCareKit-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0A6DCF51FF8AF803A863C079 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KinveyCareKit/Pods-KinveyCareKit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8D0CE575568CE95122582807 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KinveyCareKitTests/Pods-KinveyCareKitTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FE1148C25BBDA8386DA34EC6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KinveyCareKitTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		577ECFE61D5A5B64001FFEE4 /* Sources */ = {
@@ -571,7 +431,6 @@
 		};
 		577ED0001D5A5B65001FFEE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE6EB6C37CB5F487A37971F8 /* Pods-KinveyCareKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -579,6 +438,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = KinveyCareKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -591,7 +454,6 @@
 		};
 		577ED0011D5A5B65001FFEE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0EF898802C816684BDDF61BF /* Pods-KinveyCareKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -599,6 +461,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = KinveyCareKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -610,8 +476,11 @@
 		};
 		577ED0031D5A5B65001FFEE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F467C78FAEC56120A0C3F94 /* Pods-KinveyCareKitTests.debug.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = KinveyCareKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kinvey.KinveyCareKitTests;
@@ -621,8 +490,11 @@
 		};
 		577ED0041D5A5B65001FFEE4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 57D0D2B78D0D6EADB11B2400 /* Pods-KinveyCareKitTests.release.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = KinveyCareKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kinvey.KinveyCareKitTests;

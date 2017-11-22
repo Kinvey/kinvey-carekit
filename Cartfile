@@ -1,1 +1,3 @@
 github "carekit-apple/CareKit"
+github "ResearchKit/ResearchKit"
+github "Kinvey/swift-sdk"

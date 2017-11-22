@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:KinveyCareKit.xcodeproj">
+      location = "group:Carthage/Checkouts/CareKit/CareKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:Sample/OCKSample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:KinveyCareKit.xcodeproj">
    </FileRef>
 </Workspace>
