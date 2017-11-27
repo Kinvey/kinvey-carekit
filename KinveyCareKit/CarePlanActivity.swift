@@ -24,6 +24,7 @@ class CarePlanActivity: Entity {
     var schedule: CareSchedule?
     var resultResettable: Bool?
     var userInfo: [String : NSCoding]?
+    var optional: Bool?
     
     convenience init(_ activity: OCKCarePlanActivity) {
         self.init()
@@ -39,7 +40,7 @@ class CarePlanActivity: Entity {
         schedule = CareSchedule(activity.schedule)
         resultResettable = activity.resultResettable
         userInfo = activity.userInfo
-        
+        optional = activity.optional
     }
     
     override class func collectionName() -> String {
@@ -59,21 +60,24 @@ class CarePlanActivity: Entity {
         schedule <- ("schedule", map["schedule"])
         resultResettable <- ("resultResettable", map["resultResettable"])
         userInfo <- ("userInfo", map["userInfo"], UserInfoTransform())
+        optional <- ("optional", map["optional"])
     }
     
     var ockCarePlanActivity: OCKCarePlanActivity? {
         return OCKCarePlanActivity(
-            identifier: self.entityId!,
-            groupIdentifier: self.groupIdentifier,
-            type: self.type!,
-            title: self.title!,
-            text: self.text,
-            tintColor: self.tintColor,
-            instructions: self.instructions,
-            imageURL: self.imageURL,
-            schedule: self.schedule!.ockCareSchedule!,
-            resultResettable: self.resultResettable!,
-            userInfo: self.userInfo
+            identifier: entityId!,
+            groupIdentifier: groupIdentifier,
+            type: type!,
+            title: title!,
+            text: text,
+            tintColor: tintColor,
+            instructions: instructions,
+            imageURL: imageURL,
+            schedule: schedule!.ockCareSchedule!,
+            resultResettable: resultResettable!,
+            userInfo: userInfo,
+            thresholds: nil,
+            optional: optional ?? false
         )
     }
 }

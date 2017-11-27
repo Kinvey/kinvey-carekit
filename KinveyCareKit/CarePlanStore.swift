@@ -108,7 +108,8 @@ public class CarePlanStore: OCKCarePlanStore {
     }
     
     public override func activities(with type: OCKCarePlanActivityType, completion: @escaping (Bool, [OCKCarePlanActivity], Swift.Error?) -> Void) {
-        storeActivity.find(Query(format: "type == %@", type.rawValue), options: nil) { (result: Result<AnyRandomAccessCollection<CarePlanActivity>, Swift.Error>) in
+        let query = Query(format: "type == %@", type)
+        storeActivity.find(query, options: nil) { (result: Result<AnyRandomAccessCollection<CarePlanActivity>, Swift.Error>) in
             var activities = [OCKCarePlanActivity]()
             switch result {
             case .success(let kActivities):
