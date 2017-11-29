@@ -24,6 +24,7 @@ class CarePlanActivity: Entity {
     var schedule: CareSchedule?
     var resultResettable: Bool?
     var userInfo: [String : NSCoding]?
+    var thresholds: [[CarePlanThreshold]]?
     var optional: Bool?
     
     convenience init(_ activity: OCKCarePlanActivity) {
@@ -40,6 +41,11 @@ class CarePlanActivity: Entity {
         schedule = CareSchedule(activity.schedule)
         resultResettable = activity.resultResettable
         userInfo = activity.userInfo
+        thresholds = activity.thresholds?.map {
+            $0.map {
+                CarePlanThreshold($0)
+            }
+        }
         optional = activity.optional
     }
     
@@ -60,15 +66,38 @@ class CarePlanActivity: Entity {
         schedule <- ("schedule", map["schedule"])
         resultResettable <- ("resultResettable", map["resultResettable"])
         userInfo <- ("userInfo", map["userInfo"], UserInfoTransform())
+        thresholds <- ("thresholds", map["thresholds"], TransformOf<[[CarePlanThreshold]], [[[String : Any]]]>(fromJSON: { (value) -> [[CarePlanThreshold]]? in
+            guard let value = value else {
+                return nil
+            }
+            return value.map {
+                [CarePlanThreshold](JSONArray: $0)
+            }
+        }, toJSON: { (value) -> [[[String : Any]]]? in
+            guard let value = value else {
+                return nil
+            }
+            return value.map {
+                return $0.toJSON()
+            }
+        }))
         optional <- ("optional", map["optional"])
     }
     
     var ockCarePlanActivity: OCKCarePlanActivity? {
+        guard
+            let entityId = entityId,
+            let type = type,
+            let title = title
+        else {
+            return nil
+        }
+        
         return OCKCarePlanActivity(
-            identifier: entityId!,
+            identifier: entityId,
             groupIdentifier: groupIdentifier,
-            type: type!,
-            title: title!,
+            type: type,
+            title: title,
             text: text,
             tintColor: tintColor,
             instructions: instructions,
@@ -76,8 +105,13 @@ class CarePlanActivity: Entity {
             schedule: schedule!.ockCareSchedule!,
             resultResettable: resultResettable!,
             userInfo: userInfo,
-            thresholds: nil,
-            optional: optional ?? false
+            thresholds: thresholds?.map {
+                $0.flatMap {
+                    $0.ockCarePlanThreshold
+                }
+            },
+            optional: optional!
         )
     }
+    
 }
