@@ -110,52 +110,42 @@ public class CarePlanStore: OCKCarePlanStore {
     public override func activities(with type: OCKCarePlanActivityType, completion: @escaping (Bool, [OCKCarePlanActivity], Swift.Error?) -> Void) {
         let query = Query(format: "type == %@", type)
         storeActivity.find(query, options: nil) { (result: Result<AnyRandomAccessCollection<CarePlanActivity>, Swift.Error>) in
-            var activities = [OCKCarePlanActivity]()
             switch result {
             case .success(let kActivities):
-                for kActivity in kActivities {
-                    if let ockActivity = kActivity.ockCarePlanActivity {
-                        activities.append(ockActivity)
-                    }
+                let activities = kActivities.flatMap {
+                    $0.ockCarePlanActivity
                 }
                 completion(true, activities, nil)
             case .failure(let error):
-                completion(false, activities, error)
+                completion(false, [], error)
             }
         }
     }
     
     public override func setEndDate(_ endDate: DateComponents, for activity: OCKCarePlanActivity, completion: @escaping (Bool, OCKCarePlanActivity?, Swift.Error?) -> Void) {
         //TODO
+        print("")
     }
     
     public override func remove(_ activity: OCKCarePlanActivity, completion: @escaping (Bool, Swift.Error?) -> Void) {
         //TODO
+        print("")
+    }
+    
+    public override func events(onDate date: DateComponents, type: OCKCarePlanActivityType, completion: @escaping ([[OCKCarePlanEvent]], Swift.Error?) -> Void) {
+        //TODO
+        super.events(onDate: date, type: type, completion: completion)
     }
     
     public override func events(for activity: OCKCarePlanActivity, date: DateComponents, completion: @escaping ([OCKCarePlanEvent], Swift.Error?) -> Void) {
         super.events(for: activity, date: date, completion: completion)
-        
-        //TODO
-//        storeEvent.find(Query (format: "activityId == %@", activity.identifier)) { (kEvents, error) in
-//            var events = [OCKCarePlanEvent]()
-//            if let _ = kEvents {
-//                for kEvent in kEvents! {
-//                    if let ockEvent = kEvent as? OCKCarePlanEvent {     // WON't WORK
-//                        events.append(ockEvent)
-//                    }
-//                }
-//                completion(events, error as? NSError)
-//            } else {
-//                completion(events, error as? NSError)
-//            }
-//        }
-//        
     }
     
     public override func update(_ event: OCKCarePlanEvent, with result: OCKCarePlanEventResult?, state: OCKCarePlanEventState, completion: @escaping (Bool, OCKCarePlanEvent?, Swift.Error?) -> Void) {
         //network
         let kEvent = CarePlanEvent(event: event)
+        kEvent.state = state
+        kEvent.result = CarePlanEventResult(result)
         storeEvent.save(kEvent, options: nil) {
             switch $0 {
             case .success(_):
@@ -164,6 +154,37 @@ public class CarePlanStore: OCKCarePlanStore {
                 completion (false, event, error)
             }
         }
+    }
+    
+    public override func dailyCompletionStatus(with type: OCKCarePlanActivityType, startDate: DateComponents, endDate: DateComponents, handler: @escaping (DateComponents, UInt, UInt) -> Void, completion: @escaping (Bool, Swift.Error?) -> Void) {
+        //TODO
+        super.dailyCompletionStatus(
+            with: type,
+            startDate: startDate,
+            endDate: endDate,
+            handler: handler,
+            completion: completion
+        )
+    }
+    
+    public override func enumerateEvents(of activity: OCKCarePlanActivity, startDate: DateComponents, endDate: DateComponents, handler: @escaping (OCKCarePlanEvent?, UnsafeMutablePointer<ObjCBool>) -> Void, completion: @escaping (Bool, Swift.Error?) -> Void) {
+        //TODO
+        super.enumerateEvents(
+            of: activity,
+            startDate: startDate,
+            endDate: endDate,
+            handler: handler,
+            completion: completion
+        )
+    }
+    
+    public override func evaluateAdheranceThreshold(for activity: OCKCarePlanActivity, date: DateComponents, completion: @escaping (Bool, OCKCarePlanThreshold?, Swift.Error?) -> Void) {
+        //TODO
+        evaluateAdheranceThreshold(
+            for: activity,
+            date: date,
+            completion: completion
+        )
     }
     
 }

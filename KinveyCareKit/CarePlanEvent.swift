@@ -9,6 +9,7 @@
 import Kinvey
 import CareKit
 import Realm
+import ObjectMapper
 
 class CarePlanEvent: Entity {
     
@@ -17,7 +18,7 @@ class CarePlanEvent: Entity {
     var date: DateComponents?
     var activity: CarePlanActivity?
     var state: OCKCarePlanEventState?
-    var result: OCKCarePlanEventResult?
+    var result: CarePlanEventResult?
     
     init(event: OCKCarePlanEvent) {
         occurrenceIndexOfDay = event.occurrenceIndexOfDay
@@ -25,7 +26,9 @@ class CarePlanEvent: Entity {
         date = event.date
         activity = CarePlanActivity(event.activity)
         state = event.state
-        result = event.result
+        if let result = event.result {
+            self.result = CarePlanEventResult(result)
+        }
         
         super.init()
     }
@@ -46,21 +49,19 @@ class CarePlanEvent: Entity {
         super.init(map: map)
     }
     
-    
     override func propertyMapping(_ map: Map) {
         super.propertyMapping(map)
         
         occurrenceIndexOfDay <- ("occurrenceIndexOfDay", map["occurrenceIndexOfDay"])
         numberOfDaysSinceStart <- ("numberOfDaysSinceStart", map["numberOfDaysSinceStart"])
         date <- ("date", map["date"], NSDateComponentsTransform())
-//        activity <- ("activity", map["activity"], ActivityTransform())
         activity <- ("activity", map["activity"])
-        state <- ("state", map["state"])
+        state <- ("state", map["state"], EnumTransform<OCKCarePlanEventState>())
         result <- ("result", map["result"])
     }
     
 //    var ockCarePlanEvent: OCKCarePlanEvent? {
-//
+//        OCKCarePlanEvent(coder: <#T##NSCoder#>)
 //    }
 
     required init(realm: RLMRealm, schema: RLMObjectSchema) {

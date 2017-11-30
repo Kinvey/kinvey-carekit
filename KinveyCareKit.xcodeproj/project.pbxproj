@@ -12,6 +12,11 @@
 		57299BB71D5A8669005ED1F7 /* CareSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57299BB61D5A8669005ED1F7 /* CareSchedule.swift */; };
 		572D5D661FCC835D00C02E46 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572D5D671FCC835D00C02E46 /* Kinvey.framework */; };
 		572D5D751FCC944300C02E46 /* CarePlanThreshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572D5D741FCC944300C02E46 /* CarePlanThreshold.swift */; };
+		577539461FCF410D000D722E /* CarePlanEventResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539451FCF410D000D722E /* CarePlanEventResult.swift */; };
+		577539491FD04610000D722E /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539481FD04610000D722E /* SampleType.swift */; };
+		5775394B1FD05587000D722E /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775394A1FD05587000D722E /* Sample.swift */; };
+		5775394D1FD06DC2000D722E /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775394C1FD06DC2000D722E /* Quantity.swift */; };
+		5775394F1FD07617000D722E /* KinveyHealthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775394E1FD07617000D722E /* KinveyHealthKit.swift */; };
 		577ECFEF1D5A5B65001FFEE4 /* KinveyCareKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 577ECFEE1D5A5B65001FFEE4 /* KinveyCareKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		577ECFF61D5A5B65001FFEE4 /* KinveyCareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */; };
 		577ECFFB1D5A5B65001FFEE4 /* KinveyCareKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ECFFA1D5A5B65001FFEE4 /* KinveyCareKitTests.swift */; };
@@ -61,6 +66,11 @@
 		57299BB61D5A8669005ED1F7 /* CareSchedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CareSchedule.swift; sourceTree = "<group>"; };
 		572D5D671FCC835D00C02E46 /* Kinvey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kinvey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		572D5D741FCC944300C02E46 /* CarePlanThreshold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarePlanThreshold.swift; sourceTree = "<group>"; };
+		577539451FCF410D000D722E /* CarePlanEventResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarePlanEventResult.swift; sourceTree = "<group>"; };
+		577539481FD04610000D722E /* SampleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
+		5775394A1FD05587000D722E /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		5775394C1FD06DC2000D722E /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
+		5775394E1FD07617000D722E /* KinveyHealthKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinveyHealthKit.swift; sourceTree = "<group>"; };
 		577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KinveyCareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		577ECFEE1D5A5B65001FFEE4 /* KinveyCareKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KinveyCareKit.h; sourceTree = "<group>"; };
 		577ECFF01D5A5B65001FFEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +126,17 @@
 			name = Transformers;
 			sourceTree = "<group>";
 		};
+		577539471FD045E3000D722E /* KinveyHealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				5775394E1FD07617000D722E /* KinveyHealthKit.swift */,
+				577539481FD04610000D722E /* SampleType.swift */,
+				5775394A1FD05587000D722E /* Sample.swift */,
+				5775394C1FD06DC2000D722E /* Quantity.swift */,
+			);
+			path = KinveyHealthKit;
+			sourceTree = "<group>";
+		};
 		577ECFE11D5A5B64001FFEE4 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +159,7 @@
 		577ECFED1D5A5B65001FFEE4 /* KinveyCareKit */ = {
 			isa = PBXGroup;
 			children = (
+				577539471FD045E3000D722E /* KinveyHealthKit */,
 				57299BB51D5A863D005ED1F7 /* Transformers */,
 				577ECFEE1D5A5B65001FFEE4 /* KinveyCareKit.h */,
 				577ECFF01D5A5B65001FFEE4 /* Info.plist */,
@@ -147,6 +169,7 @@
 				57299BB61D5A8669005ED1F7 /* CareSchedule.swift */,
 				578B7B4B1D5ABEF700E9426F /* CarePlanEvent.swift */,
 				572D5D741FCC944300C02E46 /* CarePlanThreshold.swift */,
+				577539451FCF410D000D722E /* CarePlanEventResult.swift */,
 			);
 			path = KinveyCareKit;
 			sourceTree = "<group>";
@@ -285,11 +308,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				577539491FD04610000D722E /* SampleType.swift in Sources */,
+				5775394B1FD05587000D722E /* Sample.swift in Sources */,
+				5775394F1FD07617000D722E /* KinveyHealthKit.swift in Sources */,
 				577ED0061D5A5BB3001FFEE4 /* KinveyCareKit.swift in Sources */,
+				5775394D1FD06DC2000D722E /* Quantity.swift in Sources */,
 				96DA893E1D63FEDC00D466F6 /* UserInfoTransform.swift in Sources */,
 				570CBC121D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift in Sources */,
 				577ED0171D5A64DE001FFEE4 /* CarePlanStore.swift in Sources */,
 				572D5D751FCC944300C02E46 /* CarePlanThreshold.swift in Sources */,
+				577539461FCF410D000D722E /* CarePlanEventResult.swift in Sources */,
 				57299BB41D5A80FC005ED1F7 /* UIColorTransform.swift in Sources */,
 				57299BB71D5A8669005ED1F7 /* CareSchedule.swift in Sources */,
 				577ED0281D5A6632001FFEE4 /* CarePlanActivity.swift in Sources */,
