@@ -13,10 +13,6 @@
 		572D5D661FCC835D00C02E46 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572D5D671FCC835D00C02E46 /* Kinvey.framework */; };
 		572D5D751FCC944300C02E46 /* CarePlanThreshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572D5D741FCC944300C02E46 /* CarePlanThreshold.swift */; };
 		577539461FCF410D000D722E /* CarePlanEventResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539451FCF410D000D722E /* CarePlanEventResult.swift */; };
-		577539491FD04610000D722E /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539481FD04610000D722E /* SampleType.swift */; };
-		5775394B1FD05587000D722E /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775394A1FD05587000D722E /* Sample.swift */; };
-		5775394D1FD06DC2000D722E /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775394C1FD06DC2000D722E /* Quantity.swift */; };
-		5775394F1FD07617000D722E /* KinveyHealthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775394E1FD07617000D722E /* KinveyHealthKit.swift */; };
 		577ECFEF1D5A5B65001FFEE4 /* KinveyCareKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 577ECFEE1D5A5B65001FFEE4 /* KinveyCareKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		577ECFF61D5A5B65001FFEE4 /* KinveyCareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */; };
 		577ECFFB1D5A5B65001FFEE4 /* KinveyCareKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577ECFFA1D5A5B65001FFEE4 /* KinveyCareKitTests.swift */; };
@@ -31,6 +27,25 @@
 		5786A3C61FC5219F000CDDC3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5786A3C41FC5219F000CDDC3 /* RealmSwift.framework */; };
 		5786A3C71FC5219F000CDDC3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5786A3C51FC5219F000CDDC3 /* Realm.framework */; };
 		578B7B4C1D5ABEF700E9426F /* CarePlanEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578B7B4B1D5ABEF700E9426F /* CarePlanEvent.swift */; };
+		57ABA61A1FD1E73200411F15 /* CorrelationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA60C1FD1E73100411F15 /* CorrelationType.swift */; };
+		57ABA61B1FD1E73200411F15 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA60D1FD1E73200411F15 /* SampleType.swift */; };
+		57ABA61C1FD1E73200411F15 /* QuantityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA60E1FD1E73200411F15 /* QuantityType.swift */; };
+		57ABA61D1FD1E73200411F15 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA60F1FD1E73200411F15 /* Source.swift */; };
+		57ABA61E1FD1E73200411F15 /* SourceRevision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6101FD1E73200411F15 /* SourceRevision.swift */; };
+		57ABA61F1FD1E73200411F15 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6111FD1E73200411F15 /* Object.swift */; };
+		57ABA6201FD1E73200411F15 /* KinveyHealthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6121FD1E73200411F15 /* KinveyHealthKit.swift */; };
+		57ABA6211FD1E73200411F15 /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6131FD1E73200411F15 /* CategoryType.swift */; };
+		57ABA6221FD1E73200411F15 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6141FD1E73200411F15 /* Device.swift */; };
+		57ABA6231FD1E73200411F15 /* QuantitySample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6151FD1E73200411F15 /* QuantitySample.swift */; };
+		57ABA6241FD1E73200411F15 /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6161FD1E73200411F15 /* Quantity.swift */; };
+		57ABA6251FD1E73200411F15 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6171FD1E73200411F15 /* Sample.swift */; };
+		57ABA6261FD1E73200411F15 /* ObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6181FD1E73200411F15 /* ObjectType.swift */; };
+		57ABA6271FD1E73200411F15 /* WorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6191FD1E73200411F15 /* WorkoutType.swift */; };
+		57B99CFB1FD5D2C600165F89 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B99CFA1FD5D2C600165F89 /* Patient.swift */; };
+		57B99CFF1FD5DEB000165F89 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B99CFE1FD5DEB000165F89 /* Contact.swift */; };
+		57B99D031FD5E6E200165F89 /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B99D021FD5E6E200165F89 /* ContactInfo.swift */; };
+		57B99D051FD6E8B200165F89 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B99D041FD6E8B200165F89 /* Reference.swift */; };
+		57B99D071FD6F01900165F89 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B99D061FD6F01900165F89 /* Extensions.swift */; };
 		967BFB8C1D62403600682B20 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; };
 		967BFB8D1D6255AC00682B20 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; };
 		967BFB951D626D9800682B20 /* KinveyCareKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -67,10 +82,6 @@
 		572D5D671FCC835D00C02E46 /* Kinvey.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kinvey.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		572D5D741FCC944300C02E46 /* CarePlanThreshold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarePlanThreshold.swift; sourceTree = "<group>"; };
 		577539451FCF410D000D722E /* CarePlanEventResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarePlanEventResult.swift; sourceTree = "<group>"; };
-		577539481FD04610000D722E /* SampleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
-		5775394A1FD05587000D722E /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
-		5775394C1FD06DC2000D722E /* Quantity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
-		5775394E1FD07617000D722E /* KinveyHealthKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinveyHealthKit.swift; sourceTree = "<group>"; };
 		577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KinveyCareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		577ECFEE1D5A5B65001FFEE4 /* KinveyCareKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KinveyCareKit.h; sourceTree = "<group>"; };
 		577ECFF01D5A5B65001FFEE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -89,6 +100,25 @@
 		5786A3C41FC5219F000CDDC3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		5786A3C51FC5219F000CDDC3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		578B7B4B1D5ABEF700E9426F /* CarePlanEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarePlanEvent.swift; sourceTree = "<group>"; };
+		57ABA60C1FD1E73100411F15 /* CorrelationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrelationType.swift; sourceTree = "<group>"; };
+		57ABA60D1FD1E73200411F15 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
+		57ABA60E1FD1E73200411F15 /* QuantityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantityType.swift; sourceTree = "<group>"; };
+		57ABA60F1FD1E73200411F15 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		57ABA6101FD1E73200411F15 /* SourceRevision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceRevision.swift; sourceTree = "<group>"; };
+		57ABA6111FD1E73200411F15 /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		57ABA6121FD1E73200411F15 /* KinveyHealthKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyHealthKit.swift; sourceTree = "<group>"; };
+		57ABA6131FD1E73200411F15 /* CategoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
+		57ABA6141FD1E73200411F15 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		57ABA6151FD1E73200411F15 /* QuantitySample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuantitySample.swift; sourceTree = "<group>"; };
+		57ABA6161FD1E73200411F15 /* Quantity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
+		57ABA6171FD1E73200411F15 /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		57ABA6181FD1E73200411F15 /* ObjectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectType.swift; sourceTree = "<group>"; };
+		57ABA6191FD1E73200411F15 /* WorkoutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutType.swift; sourceTree = "<group>"; };
+		57B99CFA1FD5D2C600165F89 /* Patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
+		57B99CFE1FD5DEB000165F89 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		57B99D021FD5E6E200165F89 /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
+		57B99D041FD6E8B200165F89 /* Reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
+		57B99D061FD6F01900165F89 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		96DA893D1D63FEDC00D466F6 /* UserInfoTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTransform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,17 +156,6 @@
 			name = Transformers;
 			sourceTree = "<group>";
 		};
-		577539471FD045E3000D722E /* KinveyHealthKit */ = {
-			isa = PBXGroup;
-			children = (
-				5775394E1FD07617000D722E /* KinveyHealthKit.swift */,
-				577539481FD04610000D722E /* SampleType.swift */,
-				5775394A1FD05587000D722E /* Sample.swift */,
-				5775394C1FD06DC2000D722E /* Quantity.swift */,
-			);
-			path = KinveyHealthKit;
-			sourceTree = "<group>";
-		};
 		577ECFE11D5A5B64001FFEE4 = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +178,7 @@
 		577ECFED1D5A5B65001FFEE4 /* KinveyCareKit */ = {
 			isa = PBXGroup;
 			children = (
-				577539471FD045E3000D722E /* KinveyHealthKit */,
+				57ABA60B1FD1E71000411F15 /* KinveyHealthKit */,
 				57299BB51D5A863D005ED1F7 /* Transformers */,
 				577ECFEE1D5A5B65001FFEE4 /* KinveyCareKit.h */,
 				577ECFF01D5A5B65001FFEE4 /* Info.plist */,
@@ -170,6 +189,11 @@
 				578B7B4B1D5ABEF700E9426F /* CarePlanEvent.swift */,
 				572D5D741FCC944300C02E46 /* CarePlanThreshold.swift */,
 				577539451FCF410D000D722E /* CarePlanEventResult.swift */,
+				57B99CFA1FD5D2C600165F89 /* Patient.swift */,
+				57B99CFE1FD5DEB000165F89 /* Contact.swift */,
+				57B99D021FD5E6E200165F89 /* ContactInfo.swift */,
+				57B99D041FD6E8B200165F89 /* Reference.swift */,
+				57B99D061FD6F01900165F89 /* Extensions.swift */,
 			);
 			path = KinveyCareKit;
 			sourceTree = "<group>";
@@ -205,6 +229,28 @@
 				577ED0361D5A6D0E001FFEE4 /* TakeMedication.swift */,
 			);
 			name = Activities;
+			sourceTree = "<group>";
+		};
+		57ABA60B1FD1E71000411F15 /* KinveyHealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				57ABA6131FD1E73200411F15 /* CategoryType.swift */,
+				57ABA60C1FD1E73100411F15 /* CorrelationType.swift */,
+				57ABA6141FD1E73200411F15 /* Device.swift */,
+				57ABA6121FD1E73200411F15 /* KinveyHealthKit.swift */,
+				57ABA6111FD1E73200411F15 /* Object.swift */,
+				57ABA6181FD1E73200411F15 /* ObjectType.swift */,
+				57ABA6161FD1E73200411F15 /* Quantity.swift */,
+				57ABA6151FD1E73200411F15 /* QuantitySample.swift */,
+				57ABA60E1FD1E73200411F15 /* QuantityType.swift */,
+				57ABA6171FD1E73200411F15 /* Sample.swift */,
+				57ABA60D1FD1E73200411F15 /* SampleType.swift */,
+				57ABA60F1FD1E73200411F15 /* Source.swift */,
+				57ABA6101FD1E73200411F15 /* SourceRevision.swift */,
+				57ABA6191FD1E73200411F15 /* WorkoutType.swift */,
+			);
+			name = KinveyHealthKit;
+			path = ../KinveyHealthKit/KinveyHealthKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,20 +354,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				577539491FD04610000D722E /* SampleType.swift in Sources */,
-				5775394B1FD05587000D722E /* Sample.swift in Sources */,
-				5775394F1FD07617000D722E /* KinveyHealthKit.swift in Sources */,
+				57B99CFF1FD5DEB000165F89 /* Contact.swift in Sources */,
 				577ED0061D5A5BB3001FFEE4 /* KinveyCareKit.swift in Sources */,
-				5775394D1FD06DC2000D722E /* Quantity.swift in Sources */,
+				57ABA6271FD1E73200411F15 /* WorkoutType.swift in Sources */,
 				96DA893E1D63FEDC00D466F6 /* UserInfoTransform.swift in Sources */,
+				57ABA6261FD1E73200411F15 /* ObjectType.swift in Sources */,
+				57B99CFB1FD5D2C600165F89 /* Patient.swift in Sources */,
+				57ABA61E1FD1E73200411F15 /* SourceRevision.swift in Sources */,
+				57B99D071FD6F01900165F89 /* Extensions.swift in Sources */,
+				57ABA6241FD1E73200411F15 /* Quantity.swift in Sources */,
+				57ABA61C1FD1E73200411F15 /* QuantityType.swift in Sources */,
+				57B99D051FD6E8B200165F89 /* Reference.swift in Sources */,
+				57ABA6231FD1E73200411F15 /* QuantitySample.swift in Sources */,
 				570CBC121D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift in Sources */,
+				57ABA61B1FD1E73200411F15 /* SampleType.swift in Sources */,
 				577ED0171D5A64DE001FFEE4 /* CarePlanStore.swift in Sources */,
+				57ABA6251FD1E73200411F15 /* Sample.swift in Sources */,
+				57ABA6201FD1E73200411F15 /* KinveyHealthKit.swift in Sources */,
 				572D5D751FCC944300C02E46 /* CarePlanThreshold.swift in Sources */,
+				57ABA61A1FD1E73200411F15 /* CorrelationType.swift in Sources */,
 				577539461FCF410D000D722E /* CarePlanEventResult.swift in Sources */,
 				57299BB41D5A80FC005ED1F7 /* UIColorTransform.swift in Sources */,
+				57ABA61D1FD1E73200411F15 /* Source.swift in Sources */,
+				57ABA6221FD1E73200411F15 /* Device.swift in Sources */,
 				57299BB71D5A8669005ED1F7 /* CareSchedule.swift in Sources */,
 				577ED0281D5A6632001FFEE4 /* CarePlanActivity.swift in Sources */,
+				57ABA61F1FD1E73200411F15 /* Object.swift in Sources */,
+				57B99D031FD5E6E200165F89 /* ContactInfo.swift in Sources */,
 				578B7B4C1D5ABEF700E9426F /* CarePlanEvent.swift in Sources */,
+				57ABA6211FD1E73200411F15 /* CategoryType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,6 +30,9 @@
 
 import ResearchKit
 import CareKit
+import Kinvey
+import KinveyCareKit
+import PromiseKit
 
 class SampleData: NSObject {
     
@@ -46,40 +49,99 @@ class SampleData: NSObject {
         Weight(),
         Caffeine()
     ]
+    
+    lazy var patientDataStore = DataStore<Patient>.collection(.network)
+    
     /**
      An `OCKPatient` object to assign contacts to.
      */
+    var patient: OCKPatient!
     
-    var patient: OCKPatient
+    lazy var contactDataStore = DataStore<Contact>.collection(.network)
+    
+    var kContacts: [Contact]? {
+        didSet {
+            _contacts = kContacts?.flatMap { $0.ockContact }
+        }
+    }
+    
+    private var _contacts: [OCKContact]?
     
     /**
         An array of `OCKContact`s to display on the Connect view.
     */
-    let contacts: [OCKContact] = [
-        OCKContact(contactType: .careTeam,
-            name: "Dr. Maria Ruiz",
-            relation: "Physician",
-            contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512"), OCKContactInfo.email("mruiz2@mac.com")],
-            tintColor: Colors.blue.color,
-            monogram: "MR",
-            image: nil),
+    var contacts: [OCKContact] {
+        if let contacts = _contacts {
+            return contacts
+        }
         
-        OCKContact(contactType: .careTeam,
-            name: "Bill James",
-            relation: "Nurse",
-            contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512"), OCKContactInfo.email("billjames2@mac.com")],
-            tintColor: Colors.green.color,
-            monogram: "BJ",
-            image: nil),
+        contactDataStore.find(options: nil) { (result: Kinvey.Result<AnyRandomAccessCollection<Contact>, Swift.Error>) in
+            switch result {
+            case .success(let contacts):
+                if contacts.count > 0 {
+                    self.kContacts = Array(contacts)
+                } else {
+                    let ockContacts = [
+                        OCKContact(contactType: .careTeam,
+                                   name: "Dr. Maria Ruiz",
+                                   relation: "Physician",
+                                   contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512"), OCKContactInfo.email("mruiz2@mac.com")],
+                                   tintColor: Colors.blue.color,
+                                   monogram: "MR",
+                                   image: nil),
+                        
+                        OCKContact(contactType: .careTeam,
+                                   name: "Bill James",
+                                   relation: "Nurse",
+                                   contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512"), OCKContactInfo.email("billjames2@mac.com")],
+                                   tintColor: Colors.green.color,
+                                   monogram: "BJ",
+                                   image: nil),
+                        
+                        OCKContact(contactType: .personal,
+                                   name: "Tom Clark",
+                                   relation: "Father",
+                                   contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512")],
+                                   tintColor: Colors.yellow.color,
+                                   monogram: "TC",
+                                   image: nil)
+                        ].map { Contact($0) }
+                    var promises = [Promise<Contact>]()
+                    for ockContact in ockContacts {
+                        promises.append(Promise<Contact> { fulfill, reject in
+                            self.contactDataStore.save(ockContact, options: nil) {
+                                switch $0 {
+                                case .success(let contact):
+                                    fulfill(contact)
+                                case .failure(let error):
+                                    reject(error)
+                                }
+                            }
+                        })
+                    }
+                    when(fulfilled: promises).then {
+                        self.kContacts = $0
+                    }
+                }
+            case .failure(let error):
+                fatalError(error.localizedDescription)
+            }
+        }
         
-        OCKContact(contactType: .personal,
-            name: "Tom Clark",
-            relation: "Father",
-            contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512")],
-            tintColor: Colors.yellow.color,
-            monogram: "TC",
-            image: nil)
-    ]
+        let observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, CFRunLoopActivity.beforeWaiting.rawValue, true, 0) { (observer, activity) in
+            if self._contacts != nil {
+                CFRunLoopStop(CFRunLoopGetCurrent())
+            } else {
+                CFRunLoopWakeUp(CFRunLoopGetCurrent())
+            }
+        }
+        
+        CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
+        CFRunLoopRunInMode(CFRunLoopMode.defaultMode, CFTimeInterval.infinity, false)
+        CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
+        
+        return _contacts!
+    }
     
     /**
      Connect message items
@@ -94,6 +156,8 @@ class SampleData: NSObject {
     // MARK: Initialization
     
     required init(carePlanStore: OCKCarePlanStore) {
+        super.init()
+        
         self.patient = OCKPatient(identifier: "patient", carePlanStore: carePlanStore, name: "John Doe", detailInfo: nil, careTeamContacts: contacts, tintColor: Colors.lightBlue.color, monogram: "JD", image: nil, categories: nil, userInfo: ["Age": "21", "Gender": "M", "Phone":"888-555-5512"])
         
         for contact in contacts {
@@ -104,7 +168,14 @@ class SampleData: NSObject {
             }
         }
         
-        super.init()
+        patientDataStore.save(Patient(patient, careTeamContacts: kContacts), options: nil) {
+            switch $0 {
+            case .success(let patient):
+                print(patient)
+            case .failure(let error):
+                print(error)
+            }
+        }
 
         // Populate the store with the sample activities.
         for sampleActivity in activities {

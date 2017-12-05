@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		577539641FD197FC000D722E /* KinveyHealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5775395A1FD197FC000D722E /* KinveyHealthKit.framework */; };
+		577539691FD197FC000D722E /* KinveyHealthKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539681FD197FC000D722E /* KinveyHealthKitTests.swift */; };
+		5775396B1FD197FC000D722E /* KinveyHealthKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 5775395D1FD197FC000D722E /* KinveyHealthKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		577539781FD19836000D722E /* KinveyHealthKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539741FD19836000D722E /* KinveyHealthKit.swift */; };
+		577539791FD19836000D722E /* Quantity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539751FD19836000D722E /* Quantity.swift */; };
+		5775397A1FD19836000D722E /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539761FD19836000D722E /* Sample.swift */; };
+		5775397B1FD19836000D722E /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539771FD19836000D722E /* SampleType.swift */; };
+		5775397D1FD1986F000D722E /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775397C1FD1986F000D722E /* Device.swift */; };
+		577539811FD198B7000D722E /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577539801FD198B6000D722E /* Kinvey.framework */; };
+		5775398C1FD1993A000D722E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577539831FD19939000D722E /* RealmSwift.framework */; };
+		5775398D1FD1993A000D722E /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577539841FD19939000D722E /* PromiseKit.framework */; };
+		5775398E1FD1993A000D722E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577539851FD19939000D722E /* Realm.framework */; };
+		5775398F1FD1993A000D722E /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577539861FD19939000D722E /* ObjcExceptionBridging.framework */; };
+		577539901FD1993A000D722E /* PubNub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577539871FD19939000D722E /* PubNub.framework */; };
+		577539911FD1993A000D722E /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577539881FD1993A000D722E /* ObjectMapper.framework */; };
+		577539921FD1993A000D722E /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577539891FD1993A000D722E /* XCGLogger.framework */; };
+		577539931FD1993A000D722E /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5775398A1FD1993A000D722E /* ResearchKit.framework */; };
+		577539941FD1993A000D722E /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5775398B1FD1993A000D722E /* KeychainAccess.framework */; };
+		577539961FD19961000D722E /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539951FD19961000D722E /* Object.swift */; };
+		577539981FD19986000D722E /* QuantitySample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539971FD19986000D722E /* QuantitySample.swift */; };
+		5775399A1FD199CF000D722E /* ObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539991FD199CF000D722E /* ObjectType.swift */; };
+		5775399C1FD199F9000D722E /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775399B1FD199F9000D722E /* CategoryType.swift */; };
+		5775399E1FD19A26000D722E /* CorrelationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775399D1FD19A26000D722E /* CorrelationType.swift */; };
+		577539A01FD19A3C000D722E /* QuantityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5775399F1FD19A3C000D722E /* QuantityType.swift */; };
+		577539A21FD19A52000D722E /* WorkoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577539A11FD19A52000D722E /* WorkoutType.swift */; };
+		57ABA6061FD19E0000411F15 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6051FD19E0000411F15 /* Source.swift */; };
+		57ABA6081FD1A01200411F15 /* SourceRevision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ABA6071FD1A01200411F15 /* SourceRevision.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		577539651FD197FC000D722E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 577539511FD197FC000D722E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 577539591FD197FC000D722E;
+			remoteInfo = KinveyHealthKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5775395A1FD197FC000D722E /* KinveyHealthKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KinveyHealthKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5775395D1FD197FC000D722E /* KinveyHealthKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KinveyHealthKit.h; sourceTree = "<group>"; };
+		5775395E1FD197FC000D722E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		577539631FD197FC000D722E /* KinveyHealthKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KinveyHealthKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		577539681FD197FC000D722E /* KinveyHealthKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinveyHealthKitTests.swift; sourceTree = "<group>"; };
+		5775396A1FD197FC000D722E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		577539741FD19836000D722E /* KinveyHealthKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyHealthKit.swift; sourceTree = "<group>"; };
+		577539751FD19836000D722E /* Quantity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quantity.swift; sourceTree = "<group>"; };
+		577539761FD19836000D722E /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
+		577539771FD19836000D722E /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
+		5775397C1FD1986F000D722E /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		577539801FD198B6000D722E /* Kinvey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kinvey.framework; path = ../Carthage/Build/iOS/Kinvey.framework; sourceTree = "<group>"; };
+		577539831FD19939000D722E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = ../Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		577539841FD19939000D722E /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = ../Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
+		577539851FD19939000D722E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		577539861FD19939000D722E /* ObjcExceptionBridging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjcExceptionBridging.framework; path = ../Carthage/Build/iOS/ObjcExceptionBridging.framework; sourceTree = "<group>"; };
+		577539871FD19939000D722E /* PubNub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PubNub.framework; path = ../Carthage/Build/iOS/PubNub.framework; sourceTree = "<group>"; };
+		577539881FD1993A000D722E /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = ../Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		577539891FD1993A000D722E /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = ../Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
+		5775398A1FD1993A000D722E /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = ../Carthage/Build/iOS/ResearchKit.framework; sourceTree = "<group>"; };
+		5775398B1FD1993A000D722E /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = ../Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		577539951FD19961000D722E /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		577539971FD19986000D722E /* QuantitySample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantitySample.swift; sourceTree = "<group>"; };
+		577539991FD199CF000D722E /* ObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectType.swift; sourceTree = "<group>"; };
+		5775399B1FD199F9000D722E /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
+		5775399D1FD19A26000D722E /* CorrelationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrelationType.swift; sourceTree = "<group>"; };
+		5775399F1FD19A3C000D722E /* QuantityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityType.swift; sourceTree = "<group>"; };
+		577539A11FD19A52000D722E /* WorkoutType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutType.swift; sourceTree = "<group>"; };
+		57ABA6051FD19E0000411F15 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
+		57ABA6071FD1A01200411F15 /* SourceRevision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceRevision.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		577539561FD197FC000D722E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5775398E1FD1993A000D722E /* Realm.framework in Frameworks */,
+				577539921FD1993A000D722E /* XCGLogger.framework in Frameworks */,
+				577539931FD1993A000D722E /* ResearchKit.framework in Frameworks */,
+				5775398D1FD1993A000D722E /* PromiseKit.framework in Frameworks */,
+				577539941FD1993A000D722E /* KeychainAccess.framework in Frameworks */,
+				577539901FD1993A000D722E /* PubNub.framework in Frameworks */,
+				5775398C1FD1993A000D722E /* RealmSwift.framework in Frameworks */,
+				5775398F1FD1993A000D722E /* ObjcExceptionBridging.framework in Frameworks */,
+				577539811FD198B7000D722E /* Kinvey.framework in Frameworks */,
+				577539911FD1993A000D722E /* ObjectMapper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577539601FD197FC000D722E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577539641FD197FC000D722E /* KinveyHealthKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		577539501FD197FC000D722E = {
+			isa = PBXGroup;
+			children = (
+				5775395C1FD197FC000D722E /* KinveyHealthKit */,
+				577539671FD197FC000D722E /* KinveyHealthKitTests */,
+				5775395B1FD197FC000D722E /* Products */,
+				5775397E1FD19895000D722E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5775395B1FD197FC000D722E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5775395A1FD197FC000D722E /* KinveyHealthKit.framework */,
+				577539631FD197FC000D722E /* KinveyHealthKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5775395C1FD197FC000D722E /* KinveyHealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				5775395D1FD197FC000D722E /* KinveyHealthKit.h */,
+				5775395E1FD197FC000D722E /* Info.plist */,
+				577539741FD19836000D722E /* KinveyHealthKit.swift */,
+				577539951FD19961000D722E /* Object.swift */,
+				57ABA6051FD19E0000411F15 /* Source.swift */,
+				57ABA6071FD1A01200411F15 /* SourceRevision.swift */,
+				577539761FD19836000D722E /* Sample.swift */,
+				577539971FD19986000D722E /* QuantitySample.swift */,
+				5775397C1FD1986F000D722E /* Device.swift */,
+				577539751FD19836000D722E /* Quantity.swift */,
+				577539991FD199CF000D722E /* ObjectType.swift */,
+				577539771FD19836000D722E /* SampleType.swift */,
+				5775399B1FD199F9000D722E /* CategoryType.swift */,
+				5775399D1FD19A26000D722E /* CorrelationType.swift */,
+				5775399F1FD19A3C000D722E /* QuantityType.swift */,
+				577539A11FD19A52000D722E /* WorkoutType.swift */,
+			);
+			path = KinveyHealthKit;
+			sourceTree = "<group>";
+		};
+		577539671FD197FC000D722E /* KinveyHealthKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				577539681FD197FC000D722E /* KinveyHealthKitTests.swift */,
+				5775396A1FD197FC000D722E /* Info.plist */,
+			);
+			path = KinveyHealthKitTests;
+			sourceTree = "<group>";
+		};
+		5775397E1FD19895000D722E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5775398B1FD1993A000D722E /* KeychainAccess.framework */,
+				577539861FD19939000D722E /* ObjcExceptionBridging.framework */,
+				577539881FD1993A000D722E /* ObjectMapper.framework */,
+				577539841FD19939000D722E /* PromiseKit.framework */,
+				577539871FD19939000D722E /* PubNub.framework */,
+				577539851FD19939000D722E /* Realm.framework */,
+				577539831FD19939000D722E /* RealmSwift.framework */,
+				5775398A1FD1993A000D722E /* ResearchKit.framework */,
+				577539891FD1993A000D722E /* XCGLogger.framework */,
+				577539801FD198B6000D722E /* Kinvey.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		577539571FD197FC000D722E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5775396B1FD197FC000D722E /* KinveyHealthKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		577539591FD197FC000D722E /* KinveyHealthKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5775396E1FD197FC000D722E /* Build configuration list for PBXNativeTarget "KinveyHealthKit" */;
+			buildPhases = (
+				577539551FD197FC000D722E /* Sources */,
+				577539561FD197FC000D722E /* Frameworks */,
+				577539571FD197FC000D722E /* Headers */,
+				577539581FD197FC000D722E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KinveyHealthKit;
+			productName = KinveyHealthKit;
+			productReference = 5775395A1FD197FC000D722E /* KinveyHealthKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		577539621FD197FC000D722E /* KinveyHealthKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 577539711FD197FC000D722E /* Build configuration list for PBXNativeTarget "KinveyHealthKitTests" */;
+			buildPhases = (
+				5775395F1FD197FC000D722E /* Sources */,
+				577539601FD197FC000D722E /* Frameworks */,
+				577539611FD197FC000D722E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				577539661FD197FC000D722E /* PBXTargetDependency */,
+			);
+			name = KinveyHealthKitTests;
+			productName = KinveyHealthKitTests;
+			productReference = 577539631FD197FC000D722E /* KinveyHealthKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		577539511FD197FC000D722E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Kinvey;
+				TargetAttributes = {
+					577539591FD197FC000D722E = {
+						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 0910;
+						ProvisioningStyle = Automatic;
+					};
+					577539621FD197FC000D722E = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 577539541FD197FC000D722E /* Build configuration list for PBXProject "KinveyHealthKit" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 577539501FD197FC000D722E;
+			productRefGroup = 5775395B1FD197FC000D722E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				577539591FD197FC000D722E /* KinveyHealthKit */,
+				577539621FD197FC000D722E /* KinveyHealthKitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		577539581FD197FC000D722E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		577539611FD197FC000D722E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		577539551FD197FC000D722E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577539791FD19836000D722E /* Quantity.swift in Sources */,
+				577539A21FD19A52000D722E /* WorkoutType.swift in Sources */,
+				5775397A1FD19836000D722E /* Sample.swift in Sources */,
+				5775399E1FD19A26000D722E /* CorrelationType.swift in Sources */,
+				577539981FD19986000D722E /* QuantitySample.swift in Sources */,
+				577539A01FD19A3C000D722E /* QuantityType.swift in Sources */,
+				577539781FD19836000D722E /* KinveyHealthKit.swift in Sources */,
+				5775399A1FD199CF000D722E /* ObjectType.swift in Sources */,
+				5775397B1FD19836000D722E /* SampleType.swift in Sources */,
+				577539961FD19961000D722E /* Object.swift in Sources */,
+				5775397D1FD1986F000D722E /* Device.swift in Sources */,
+				5775399C1FD199F9000D722E /* CategoryType.swift in Sources */,
+				57ABA6061FD19E0000411F15 /* Source.swift in Sources */,
+				57ABA6081FD1A01200411F15 /* SourceRevision.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5775395F1FD197FC000D722E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577539691FD197FC000D722E /* KinveyHealthKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		577539661FD197FC000D722E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 577539591FD197FC000D722E /* KinveyHealthKit */;
+			targetProxy = 577539651FD197FC000D722E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5775396C1FD197FC000D722E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5775396D1FD197FC000D722E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5775396F1FD197FC000D722E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5W7CYNR7UE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../Carthage/Build/iOS/,
+				);
+				INFOPLIST_FILE = KinveyHealthKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinvey.KinveyHealthKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		577539701FD197FC000D722E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 5W7CYNR7UE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					../Carthage/Build/iOS/,
+				);
+				INFOPLIST_FILE = KinveyHealthKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinvey.KinveyHealthKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		577539721FD197FC000D722E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5W7CYNR7UE;
+				INFOPLIST_FILE = KinveyHealthKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinvey.KinveyHealthKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		577539731FD197FC000D722E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5W7CYNR7UE;
+				INFOPLIST_FILE = KinveyHealthKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinvey.KinveyHealthKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		577539541FD197FC000D722E /* Build configuration list for PBXProject "KinveyHealthKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5775396C1FD197FC000D722E /* Debug */,
+				5775396D1FD197FC000D722E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5775396E1FD197FC000D722E /* Build configuration list for PBXNativeTarget "KinveyHealthKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5775396F1FD197FC000D722E /* Debug */,
+				577539701FD197FC000D722E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		577539711FD197FC000D722E /* Build configuration list for PBXNativeTarget "KinveyHealthKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				577539721FD197FC000D722E /* Debug */,
+				577539731FD197FC000D722E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 577539511FD197FC000D722E /* Project object */;
+}

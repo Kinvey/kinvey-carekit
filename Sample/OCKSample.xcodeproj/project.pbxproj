@@ -26,8 +26,8 @@
 		570F384F1FC524C900E5B975 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 570F384C1FC524C500E5B975 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		570F38511FC524E600E5B975 /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 570F38501FC524E300E5B975 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		570F38531FC5250200E5B975 /* ObjcExceptionBridging.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 570F38521FC5250000E5B975 /* ObjcExceptionBridging.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5786A3CA1FC5227E000CDDC3 /* Kinvey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5786A3C81FC52239000CDDC3 /* Kinvey.framework */; };
-		57A916321FC523F100CD7490 /* Kinvey.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5786A3C81FC52239000CDDC3 /* Kinvey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		572D5D721FCC90BD00C02E46 /* KinveyCareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 572D5D711FCC90BD00C02E46 /* KinveyCareKit.framework */; };
+		572D5D731FCC90BD00C02E46 /* KinveyCareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 572D5D711FCC90BD00C02E46 /* KinveyCareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57A916341FC5241100CD7490 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A916331FC5240F00CD7490 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57A916361FC5242500CD7490 /* PubNub.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A916351FC5242300CD7490 /* PubNub.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57A916381FC5243C00CD7490 /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A916371FC5243A00CD7490 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -105,13 +105,6 @@
 			remoteGlobalIDString = 8605A5C41C4F04EC00DD65FF;
 			remoteInfo = CareKitTests;
 		};
-		B55565791CC82FCA00513644 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B5C100AE1CB12F0C00FAD7E8 /* CareKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8605A5B91C4F04EC00DD65FF;
-			remoteInfo = CareKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -144,12 +137,12 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B55565781CC82FCA00513644 /* CareKit.framework in Embed Frameworks */,
-				57A916321FC523F100CD7490 /* Kinvey.framework in Embed Frameworks */,
 				57A916341FC5241100CD7490 /* ResearchKit.framework in Embed Frameworks */,
 				57A916361FC5242500CD7490 /* PubNub.framework in Embed Frameworks */,
 				57A916381FC5243C00CD7490 /* KeychainAccess.framework in Embed Frameworks */,
 				57A9163A1FC5245500CD7490 /* ObjectMapper.framework in Embed Frameworks */,
 				570F384B1FC524AC00E5B975 /* PromiseKit.framework in Embed Frameworks */,
+				572D5D731FCC90BD00C02E46 /* KinveyCareKit.framework in Embed Frameworks */,
 				570F384E1FC524C900E5B975 /* Realm.framework in Embed Frameworks */,
 				570F384F1FC524C900E5B975 /* RealmSwift.framework in Embed Frameworks */,
 				570F38511FC524E600E5B975 /* XCGLogger.framework in Embed Frameworks */,
@@ -183,7 +176,7 @@
 		570F384D1FC524C500E5B975 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = ../Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		570F38501FC524E300E5B975 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCGLogger.framework; path = ../Carthage/Build/iOS/XCGLogger.framework; sourceTree = "<group>"; };
 		570F38521FC5250000E5B975 /* ObjcExceptionBridging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjcExceptionBridging.framework; path = ../Carthage/Build/iOS/ObjcExceptionBridging.framework; sourceTree = "<group>"; };
-		5786A3C81FC52239000CDDC3 /* Kinvey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kinvey.framework; path = ../Carthage/Build/iOS/Kinvey.framework; sourceTree = "<group>"; };
+		572D5D711FCC90BD00C02E46 /* KinveyCareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KinveyCareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A916331FC5240F00CD7490 /* ResearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ResearchKit.framework; path = ../Carthage/Build/iOS/ResearchKit.framework; sourceTree = "<group>"; };
 		57A916351FC5242300CD7490 /* PubNub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PubNub.framework; path = ../Carthage/Build/iOS/PubNub.framework; sourceTree = "<group>"; };
 		57A916371FC5243A00CD7490 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = ../Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
@@ -271,7 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24026C671D6D244A007582F3 /* HealthKit.framework in Frameworks */,
-				5786A3CA1FC5227E000CDDC3 /* Kinvey.framework in Frameworks */,
+				572D5D721FCC90BD00C02E46 /* KinveyCareKit.framework in Frameworks */,
 				B55565771CC82FCA00513644 /* CareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,7 +318,6 @@
 				57A916371FC5243A00CD7490 /* KeychainAccess.framework */,
 				57A916351FC5242300CD7490 /* PubNub.framework */,
 				57A916331FC5240F00CD7490 /* ResearchKit.framework */,
-				5786A3C81FC52239000CDDC3 /* Kinvey.framework */,
 				24026C661D6D244A007582F3 /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -405,6 +397,7 @@
 		B5C100841CB12E0C00FAD7E8 = {
 			isa = PBXGroup;
 			children = (
+				572D5D711FCC90BD00C02E46 /* KinveyCareKit.framework */,
 				B5C1008F1CB12E0C00FAD7E8 /* OCKSample */,
 				24E285101D74AE0A00F840E1 /* Watch */,
 				B555657F1CC82FEF00513644 /* Linked frameworks */,
@@ -529,7 +522,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B555657A1CC82FCA00513644 /* PBXTargetDependency */,
 				18214FDF1D3D9C8000AE765B /* PBXTargetDependency */,
 			);
 			name = OCKSample;
@@ -718,11 +710,6 @@
 			isa = PBXTargetDependency;
 			target = 18214FC31D3D9C8000AE765B /* OCKSampleWatch */;
 			targetProxy = 18214FDE1D3D9C8000AE765B /* PBXContainerItemProxy */;
-		};
-		B555657A1CC82FCA00513644 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CareKit;
-			targetProxy = B55565791CC82FCA00513644 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
