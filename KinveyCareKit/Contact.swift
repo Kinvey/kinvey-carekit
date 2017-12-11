@@ -19,8 +19,9 @@ public class Contact: Entity {
     public var tintColor: UIColor?
     public var monogram: String?
     public var image: UIImage?
+    public var user: Reference<User>?
     
-    public convenience init(_ contact: OCKContact) {
+    public convenience init(_ contact: OCKContact, user: User? = nil) {
         self.init()
         
         type = contact.type
@@ -30,6 +31,7 @@ public class Contact: Entity {
         tintColor = contact.tintColor
         monogram = contact.monogram
         image = contact.image
+        self.user = Reference(user)
     }
     
     public var ockContact: OCKContact? {
@@ -79,6 +81,7 @@ public class Contact: Entity {
         tintColor <- ("tintColor", map["tintColor"], UIColorTransform())
         monogram <- ("monogram", map["monogram"])
         image <- ("image", map["image"])
+        user <- ("user", map["user"])
     }
     
 }
