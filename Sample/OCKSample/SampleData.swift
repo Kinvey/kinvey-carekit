@@ -1,21 +1,21 @@
 /*
  Copyright (c) 2017, Apple Inc. All rights reserved.
- 
+
  Redistribution and use in source and binary forms, with or without modification,
  are permitted provided that the following conditions are met:
- 
+
  1.  Redistributions of source code must retain the above copyright notice, this
  list of conditions and the following disclaimer.
- 
+
  2.  Redistributions in binary form must reproduce the above copyright notice,
  this list of conditions and the following disclaimer in the documentation and/or
  other materials provided with the distribution.
- 
+
  3.  Neither the name of the copyright holder(s) nor the names of any contributors
  may be used to endorse or promote products derived from this software without
  specific prior written permission. No license is granted to the trademarks of
  the copyright holders even if such marks are included in this software.
- 
+
  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -35,7 +35,7 @@ import KinveyCareKit
 import PromiseKit
 
 class SampleData: NSObject {
-    
+
     // MARK: Properties
 
     /// An array of `Activity`s used in the app.
@@ -49,136 +49,49 @@ class SampleData: NSObject {
         Weight(),
         Caffeine()
     ]
-    
-    lazy var patientDataStore = DataStore<Patient>.collection(.network)
-    
+
     /**
      An `OCKPatient` object to assign contacts to.
      */
     var patient: OCKPatient!
-    
-    lazy var contactDataStore = DataStore<Contact>.collection(.network)
-    
+
     var kContacts: [Contact]? {
         didSet {
             _contacts = kContacts?.flatMap { $0.ockContact }
         }
     }
-    
+
     private var _contacts: [OCKContact]?
-    
+
     /**
         An array of `OCKContact`s to display on the Connect view.
     */
-    var contacts: [OCKContact] {
-        if let contacts = _contacts {
-            return contacts
-        }
-        
-        contactDataStore.find(options: nil) { (result: Kinvey.Result<AnyRandomAccessCollection<Contact>, Swift.Error>) in
-            switch result {
-            case .success(let contacts):
-                if contacts.count > 0 {
-                    self.kContacts = Array(contacts)
-                } else {
-                    let ockContacts = [
-                        OCKContact(contactType: .careTeam,
-                                   name: "Dr. Maria Ruiz",
-                                   relation: "Physician",
-                                   contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512"), OCKContactInfo.email("mruiz2@mac.com")],
-                                   tintColor: Colors.blue.color,
-                                   monogram: "MR",
-                                   image: nil),
-                        
-                        OCKContact(contactType: .careTeam,
-                                   name: "Bill James",
-                                   relation: "Nurse",
-                                   contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512"), OCKContactInfo.email("billjames2@mac.com")],
-                                   tintColor: Colors.green.color,
-                                   monogram: "BJ",
-                                   image: nil),
-                        
-                        OCKContact(contactType: .personal,
-                                   name: "Tom Clark",
-                                   relation: "Father",
-                                   contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512")],
-                                   tintColor: Colors.yellow.color,
-                                   monogram: "TC",
-                                   image: nil)
-                        ].map { Contact($0) }
-                    var promises = [Promise<Contact>]()
-                    for ockContact in ockContacts {
-                        promises.append(Promise<Contact> { fulfill, reject in
-                            self.contactDataStore.save(ockContact, options: nil) {
-                                switch $0 {
-                                case .success(let contact):
-                                    fulfill(contact)
-                                case .failure(let error):
-                                    reject(error)
-                                }
-                            }
-                        })
-                    }
-                    when(fulfilled: promises).then {
-                        self.kContacts = $0
-                    }
-                }
-            case .failure(let error):
-                fatalError(error.localizedDescription)
-            }
-        }
-        
-        let observer = CFRunLoopObserverCreateWithHandler(kCFAllocatorDefault, CFRunLoopActivity.beforeWaiting.rawValue, true, 0) { (observer, activity) in
-            if self._contacts != nil {
-                CFRunLoopStop(CFRunLoopGetCurrent())
-            } else {
-                CFRunLoopWakeUp(CFRunLoopGetCurrent())
-            }
-        }
-        
-        CFRunLoopAddObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
-        CFRunLoopRunInMode(CFRunLoopMode.defaultMode, CFTimeInterval.infinity, false)
-        CFRunLoopRemoveObserver(CFRunLoopGetCurrent(), observer, CFRunLoopMode.defaultMode)
-        
-        return _contacts!
-    }
-    
+    var contacts: [OCKContact]!
+
     /**
      Connect message items
      */
-    
+
     let dateString = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
     let replyDateString = DateFormatter.localizedString(from: Date().addingTimeInterval(1000), dateStyle: .short, timeStyle: .short)
     var connectMessageItems = [OCKConnectMessageItem]()
     var contactsWithMessageItems = [OCKContact]()
-    
-    
+
     // MARK: Initialization
-    
+
     required init(carePlanStore: OCKCarePlanStore) {
         super.init()
         
-        self.patient = OCKPatient(identifier: "patient", carePlanStore: carePlanStore, name: "John Doe", detailInfo: nil, careTeamContacts: contacts, tintColor: Colors.lightBlue.color, monogram: "JD", image: nil, categories: nil, userInfo: ["Age": "21", "Gender": "M", "Phone":"888-555-5512"])
+//        for contact in contacts {
+//            if contact.type == .careTeam {
+//                self.contactsWithMessageItems.append(contact)
+//                self.connectMessageItems = [OCKConnectMessageItem(messageType: OCKConnectMessageType.sent, name: self.patient.name, message: NSLocalizedString("I am feeling good after taking the medication! Thank you.", comment: ""), dateString: self.dateString), OCKConnectMessageItem(messageType: .received, name: contact.name, message: NSLocalizedString("That is great! Keep up the good work.", comment: ""), dateString: self.dateString)]
+//                break
+//            }
+//        }
         
-        for contact in contacts {
-            if contact.type == .careTeam {
-                contactsWithMessageItems.append(contact)
-                self.connectMessageItems = [OCKConnectMessageItem(messageType: OCKConnectMessageType.sent, name: patient.name, message: NSLocalizedString("I am feeling good after taking the medication! Thank you.", comment: ""), dateString:dateString), OCKConnectMessageItem(messageType: .received, name: contact.name, message: NSLocalizedString("That is great! Keep up the good work.", comment: ""), dateString: dateString)]
-                break
-            }
-        }
-        
-        patientDataStore.save(Patient(patient, careTeamContacts: kContacts), options: nil) {
-            switch $0 {
-            case .success(let patient):
-                print(patient)
-            case .failure(let error):
-                print(error)
-            }
-        }
-
         // Populate the store with the sample activities.
-        for sampleActivity in activities {
+        for sampleActivity in self.activities {
             let carePlanActivity = sampleActivity.carePlanActivity()
             
             carePlanStore.add(carePlanActivity) { success, error in
@@ -187,28 +100,28 @@ class SampleData: NSObject {
                 }
             }
         }
-        
     }
-    
+
     // MARK: Convenience
-    
+
     /// Returns the `Activity` that matches the supplied `ActivityType`.
     func activityWithType(_ type: ActivityType) -> Activity? {
         for activity in activities where activity.activityType == type {
             return activity
         }
-        
+
         return nil
     }
-    
+
     func generateSampleDocument() -> OCKDocument {
         let subtitle = OCKDocumentElementSubtitle(subtitle: "First subtitle")
-        
+
         let paragraph = OCKDocumentElementParagraph(content: "Lorem ipsum dolor sit amet, vim primis noster sententiae ne, et albucius apeirian accusata mea, vim at dicunt laoreet. Eu probo omnes inimicus ius, duo at veritus alienum. Nostrud facilisi id pro. Putant oporteat id eos. Admodum antiopam mel in, at per everti quaeque. Lorem ipsum dolor sit amet, vim primis noster sententiae ne, et albucius apeirian accusata mea, vim at dicunt laoreet. Eu probo omnes inimicus ius, duo at veritus alienum. Nostrud facilisi id pro. Putant oporteat id eos. Admodum antiopam mel in, at per everti quaeque. Lorem ipsum dolor sit amet, vim primis noster sententiae ne, et albucius apeirian accusata mea, vim at dicunt laoreet. Eu probo omnes inimicus ius, duo at veritus alienum. Nostrud facilisi id pro. Putant oporteat id eos. Admodum antiopam mel in, at per everti quaeque.")
-            
+
         let document = OCKDocument(title: "Sample Document Title", elements: [subtitle, paragraph])
         document.pageHeader = "App Name: OCKSample, User Name: John Appleseed"
-        
+
         return document
     }
 }
+

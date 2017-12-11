@@ -77,22 +77,6 @@ class CarePlanStoreManager: NSObject {
     // MARK: Initialization
     
     fileprivate override init() {
-        Kinvey.sharedClient.initialize(
-            appKey: "",
-            appSecret: ""
-        ) { (result: Result<User?, Swift.Error>) in
-            switch result {
-            case .success(let user):
-                if let user = user {
-                    print(user)
-                } else {
-                    CarePlanStoreManager.login()
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
         // Determine the file URL for the store.
         let searchPaths = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)
         let applicationSupportPath = searchPaths[0]

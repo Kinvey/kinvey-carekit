@@ -9,7 +9,38 @@
 import Kinvey
 import ObjectMapper
 
-struct Reference<T: Entity>: ImmutableMappable {
+public protocol Referenceable {
+    
+    var collection: String { get }
+    var id: String { get }
+    
+}
+
+extension Entity: Referenceable {
+    
+    public var collection: String {
+        return type(of: self).collectionName()
+    }
+    
+    public var id: String {
+        return entityId!
+    }
+    
+}
+
+extension User: Referenceable {
+    
+    public var collection: String {
+        return "_user"
+    }
+    
+    public var id: String {
+        return userId
+    }
+    
+}
+
+public struct Reference<T: Referenceable>: ImmutableMappable {
     
     let collection: String
     let id: String
@@ -21,21 +52,21 @@ struct Reference<T: Entity>: ImmutableMappable {
         
     }
     
-    init(map: Map) throws {
+    public init(map: Map) throws {
         collection = try map.value(EncodingKeys.collection)
         id = try map.value(EncodingKeys.id)
     }
     
-    init?(_ reference: T) {
-        guard let entityId = reference.entityId else {
+    public init?(_ reference: T?) {
+        guard let reference = reference else {
             return nil
         }
         
-        collection = T.collectionName()
-        id = entityId
+        collection = reference.collection
+        id = reference.id
     }
     
-    func mapping(map: Map) {
+    public func mapping(map: Map) {
         collection >>> map[EncodingKeys.collection]
         id >>> map[EncodingKeys.id]
     }

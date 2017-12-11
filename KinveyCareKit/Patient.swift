@@ -10,6 +10,33 @@ import Kinvey
 import CareKit
 import ObjectMapper
 
+extension OCKPatient {
+    
+    public convenience init?(_ patient: Patient, carePlanStore: OCKCarePlanStore) {
+        guard
+            let identifier = patient.entityId,
+            let name = patient.name,
+            let monogram = patient.monogram
+        else {
+            return nil
+        }
+        
+        self.init(
+            identifier: identifier,
+            carePlanStore: carePlanStore,
+            name: name,
+            detailInfo: patient.detailInfo,
+            careTeamContacts: patient.careTeamContacts?.flatMap({ $0.ockContact }),
+            tintColor: patient.tintColor,
+            monogram: monogram,
+            image: patient.image,
+            categories: patient.categories,
+            userInfo: patient.userInfo
+        )
+    }
+    
+}
+
 public class Patient: Entity {
     
     public var name: String?
@@ -20,8 +47,9 @@ public class Patient: Entity {
     public var image: UIImage?
     public var categories: [String]?
     public var userInfo: [String : Any]?
+    public var user: Reference<User>?
     
-    public convenience init(_ patient: OCKPatient, careTeamContacts: [Contact]? = nil) {
+    public convenience init(_ patient: OCKPatient, careTeamContacts: [Contact]? = nil, user: User?) {
         self.init()
         
         entityId = patient.identifier
@@ -33,6 +61,7 @@ public class Patient: Entity {
         image = patient.image
         categories = patient.categories
         userInfo = patient.userInfo
+        self.user = Reference(user)
     }
     
     public override class func collectionName() -> String {
@@ -53,13 +82,14 @@ public class Patient: Entity {
             guard let contact = contact else {
                 return nil
             }
-            return contact.toJSON()
+            return contact.flatMap({ Reference($0) }).toJSON()
         }))
         tintColor <- ("tintColor", map["tintColor"], UIColorTransform())
         monogram <- ("monogram", map["monogram"])
         image <- ("image", map["image"])
         categories <- ("categories", map["categories"])
         userInfo <- ("userInfo", map["userInfo"])
+        user <- ("user", map["user"])
     }
     
 }

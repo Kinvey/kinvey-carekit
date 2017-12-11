@@ -32,6 +32,7 @@
 		57A916361FC5242500CD7490 /* PubNub.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A916351FC5242300CD7490 /* PubNub.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57A916381FC5243C00CD7490 /* KeychainAccess.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A916371FC5243A00CD7490 /* KeychainAccess.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57A9163A1FC5245500CD7490 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57A916391FC5245300CD7490 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		57B99D0B1FD7572300165F89 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B99D0A1FD7572300165F89 /* LoginViewController.swift */; };
 		B55565771CC82FCA00513644 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55565711CC82F8D00513644 /* CareKit.framework */; };
 		B55565781CC82FCA00513644 /* CareKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B55565711CC82F8D00513644 /* CareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B555759C1CB3DB8C0028DC37 /* NSCalendar+Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = B555759B1CB3DB8C0028DC37 /* NSCalendar+Dates.swift */; };
@@ -181,6 +182,7 @@
 		57A916351FC5242300CD7490 /* PubNub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PubNub.framework; path = ../Carthage/Build/iOS/PubNub.framework; sourceTree = "<group>"; };
 		57A916371FC5243A00CD7490 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = ../Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		57A916391FC5245300CD7490 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = ../Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		57B99D0A1FD7572300165F89 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B555759B1CB3DB8C0028DC37 /* NSCalendar+Dates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCalendar+Dates.swift"; sourceTree = "<group>"; };
 		B555759D1CB3DBBE0028DC37 /* OCKInsightItem+EmptyMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OCKInsightItem+EmptyMessage.swift"; sourceTree = "<group>"; };
 		B56848B51CB5085E00D190EE /* InsightsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsightsBuilder.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 				B5C100991CB12E0C00FAD7E8 /* Assets.xcassets */,
 				B5C1009E1CB12E0C00FAD7E8 /* Info.plist */,
 				B58A3FC41CC828C2009CF1B9 /* OCKSample.entitlements */,
+				57B99D0A1FD7572300165F89 /* LoginViewController.swift */,
 			);
 			path = OCKSample;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				B5C100911CB12E0C00FAD7E8 /* AppDelegate.swift in Sources */,
 				B555759E1CB3DBBE0028DC37 /* OCKInsightItem+EmptyMessage.swift in Sources */,
 				B58A3FBB1CC81F85009CF1B9 /* BackPain.swift in Sources */,
+				57B99D0B1FD7572300165F89 /* LoginViewController.swift in Sources */,
 				B58A3FB41CC81EB8009CF1B9 /* HamstringStretch.swift in Sources */,
 				B5C100E41CB27B5F00FAD7E8 /* Activity.swift in Sources */,
 				B58A3FB21CC81E89009CF1B9 /* OutdoorWalk.swift in Sources */,

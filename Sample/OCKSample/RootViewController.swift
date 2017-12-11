@@ -33,6 +33,8 @@ import CareKit
 import ResearchKit
 import WatchConnectivity
 import Kinvey
+import KinveyCareKit
+import PromiseKit
 
 class RootViewController: UITabBarController {
     // MARK: Properties
@@ -48,6 +50,21 @@ class RootViewController: UITabBarController {
     fileprivate var connectViewController: OCKConnectViewController!
     
     fileprivate var watchManager: WatchConnectivityManager?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let logoutBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout(_:)))
+        navigationItem.leftBarButtonItem = logoutBarButtonItem
+    }
+    
+    @objc
+    func logout(_ sender: Any?) {
+        if let user = Kinvey.sharedClient.activeUser {
+            user.logout()
+            performSegue(withIdentifier: "logout", sender: sender)
+        }
+    }
     
     // MARK: Initialization
     
@@ -125,14 +142,122 @@ class RootViewController: UITabBarController {
         return viewController
 
     }
+    
+    lazy var contactDataStore = DataStore<Contact>.collection(.network)
+    
+    func loadContacts() -> Promise<[Contact]> {
+        return Promise<AnyRandomAccessCollection<Contact>> { fulfill, reject in
+            self.contactDataStore.find(options: nil) { (result: Kinvey.Result<AnyRandomAccessCollection<Contact>, Swift.Error>) in
+                switch result {
+                case .success(let contacts):
+                    if contacts.count > 0 {
+                        fulfill(contacts)
+                    } else {
+                        let ockContacts = [
+                            OCKContact(contactType: .careTeam,
+                                       name: "Dr. Maria Ruiz",
+                                       relation: "Physician",
+                                       contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512"), OCKContactInfo.email("mruiz2@mac.com")],
+                                       tintColor: Colors.blue.color,
+                                       monogram: "MR",
+                                       image: nil),
+                            
+                            OCKContact(contactType: .careTeam,
+                                       name: "Bill James",
+                                       relation: "Nurse",
+                                       contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512"), OCKContactInfo.email("billjames2@mac.com")],
+                                       tintColor: Colors.green.color,
+                                       monogram: "BJ",
+                                       image: nil),
+                            
+                            OCKContact(contactType: .personal,
+                                       name: "Tom Clark",
+                                       relation: "Father",
+                                       contactInfoItems: [OCKContactInfo.phone("888-555-5512"), OCKContactInfo.sms("888-555-5512")],
+                                       tintColor: Colors.yellow.color,
+                                       monogram: "TC",
+                                       image: nil)
+                            ].map { Contact($0) }
+                        var promises = [Promise<Contact>]()
+                        for ockContact in ockContacts {
+                            promises.append(Promise<Contact> { fulfill, reject in
+                                self.contactDataStore.save(ockContact, options: nil) {
+                                    switch $0 {
+                                    case .success(let contact):
+                                        fulfill(contact)
+                                    case .failure(let error):
+                                        reject(error)
+                                    }
+                                }
+                            })
+                        }
+                        when(fulfilled: promises).then {
+                            fulfill(AnyRandomAccessCollection($0))
+                        }
+                    }
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }.then { contacts in
+            return Array(contacts)
+        }
+    }
+    
+    lazy var patientDataStore = DataStore<Patient>.collection(.network)
+    
+    func loadPatient() -> Promise<OCKPatient> {
+        return Promise<AnyRandomAccessCollection<Patient>> { fulfill, reject in
+            let query = Query(format: "user._id == %@", Kinvey.sharedClient.activeUser!.userId)
+            self.patientDataStore.find(query, options: nil) { (result: Kinvey.Result<AnyRandomAccessCollection<Patient>, Swift.Error>) in
+                switch result {
+                case .success(let patients):
+                    fulfill(patients)
+                case .failure(let error):
+                    reject(error)
+                }
+            }
+        }.then { patients in
+            return Promise<Patient> { fulfill, reject in
+                if let patient = patients.first {
+                    fulfill(patient)
+                } else {
+                    self.loadContacts().then { (contacts) -> Void in
+                        let patient = OCKPatient(identifier: "patient", carePlanStore: self.storeManager.store, name: "John Doe", detailInfo: nil, careTeamContacts: contacts.flatMap({ $0.ockContact }), tintColor: Colors.lightBlue.color, monogram: "JD", image: nil, categories: nil, userInfo: ["Age": "21", "Gender": "M", "Phone":"888-555-5512"])
+                        
+                        let kPatient = Patient(patient, careTeamContacts: contacts, user: Kinvey.sharedClient.activeUser!)
+                        self.patientDataStore.save(kPatient, options: nil) {
+                            switch $0 {
+                            case .success(let patient):
+                                fulfill(patient)
+                            case .failure(let error):
+                                reject(error)
+                            }
+                        }
+                    }.catch {
+                        reject($0)
+                    }
+                }
+            }
+        }.then {
+            return OCKPatient($0, carePlanStore: self.storeManager.store)!
+        }
+    }
 
     fileprivate func createConnectViewController() -> OCKConnectViewController {
-        let viewController = OCKConnectViewController.init(contacts: sampleData.contacts, patient: sampleData.patient)
+        let viewController = OCKConnectViewController.init(contacts: nil, patient: nil)
         viewController.delegate = self
         viewController.dataSource = self
         // Setup the controller's title and tab bar item
         viewController.title = NSLocalizedString("Connect", comment: "")
         viewController.tabBarItem = UITabBarItem(title: viewController.title, image: UIImage(named:"connect"), selectedImage: UIImage(named: "connect-filled"))
+        
+        loadContacts().then { (contacts) -> Promise<OCKPatient> in
+            viewController.contacts = contacts.flatMap { $0.ockContact }
+            return self.loadPatient()
+        }.then {
+            viewController.patient = $0
+        }
         
         return viewController
     }
@@ -278,16 +403,20 @@ extension RootViewController: OCKConnectViewControllerDelegate {
         }
         
         func connectViewController(_ viewController: OCKConnectViewController, didSendConnectMessage message: String, careTeamContact contact: OCKContact) {
-            let dateString = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
-            let connectMessage = OCKConnectMessageItem(messageType: .sent, name: sampleData.patient.name, message: message, dateString: dateString)
-            sampleData.connectMessageItems.append(connectMessage)
+            loadPatient().then { (patient) -> Void in
+                let dateString = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
+                let connectMessage = OCKConnectMessageItem(messageType: .sent, name: patient.name, message: message, dateString: dateString)
+                self.sampleData.connectMessageItems.append(connectMessage)
+            }
         }
     }
     
     func connectViewController(_ viewController: OCKConnectViewController, didSendConnectMessage message: String, careTeamContact contact: OCKContact) {
-        let dateString = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
-        let connectMessage = OCKConnectMessageItem(messageType: .sent, name: sampleData.patient.name, message: message, dateString: dateString)
-        sampleData.connectMessageItems.append(connectMessage)
+        loadPatient().then { (patient) -> Void in
+            let dateString = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .short)
+            let connectMessage = OCKConnectMessageItem(messageType: .sent, name: patient.name, message: message, dateString: dateString)
+            self.sampleData.connectMessageItems.append(connectMessage)
+        }
     }
 }
 
