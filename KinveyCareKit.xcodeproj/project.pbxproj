@@ -46,6 +46,7 @@
 		57B99D031FD5E6E200165F89 /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B99D021FD5E6E200165F89 /* ContactInfo.swift */; };
 		57B99D051FD6E8B200165F89 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B99D041FD6E8B200165F89 /* Reference.swift */; };
 		57B99D071FD6F01900165F89 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B99D061FD6F01900165F89 /* Extensions.swift */; };
+		57E1C9691FDED82A00EDAB5C /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E1C9681FDED82A00EDAB5C /* Document.swift */; };
 		967BFB8C1D62403600682B20 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; };
 		967BFB8D1D6255AC00682B20 /* CareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577ED03A1D5A6DED001FFEE4 /* CareKit.framework */; };
 		967BFB951D626D9800682B20 /* KinveyCareKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 577ECFEB1D5A5B64001FFEE4 /* KinveyCareKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -119,6 +120,7 @@
 		57B99D021FD5E6E200165F89 /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
 		57B99D041FD6E8B200165F89 /* Reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
 		57B99D061FD6F01900165F89 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		57E1C9681FDED82A00EDAB5C /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		96DA893D1D63FEDC00D466F6 /* UserInfoTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoTransform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,6 +196,7 @@
 				57B99D021FD5E6E200165F89 /* ContactInfo.swift */,
 				57B99D041FD6E8B200165F89 /* Reference.swift */,
 				57B99D061FD6F01900165F89 /* Extensions.swift */,
+				57E1C9681FDED82A00EDAB5C /* Document.swift */,
 			);
 			path = KinveyCareKit;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				57ABA6231FD1E73200411F15 /* QuantitySample.swift in Sources */,
 				570CBC121D5A8ECE007FFBA3 /* NSDateComponentsTransform.swift in Sources */,
 				57ABA61B1FD1E73200411F15 /* SampleType.swift in Sources */,
+				57E1C9691FDED82A00EDAB5C /* Document.swift in Sources */,
 				577ED0171D5A64DE001FFEE4 /* CarePlanStore.swift in Sources */,
 				57ABA6251FD1E73200411F15 /* Sample.swift in Sources */,
 				57ABA6201FD1E73200411F15 /* KinveyHealthKit.swift in Sources */,

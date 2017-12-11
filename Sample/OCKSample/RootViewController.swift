@@ -243,6 +243,60 @@ class RootViewController: UITabBarController {
             return OCKPatient($0, carePlanStore: self.storeManager.store)!
         }
     }
+    
+    lazy var documentDataStore = DataStore<Document>.collection(.network)
+    
+    func loadDocument() -> Promise<Document> {
+        return Promise<Document> { fulfill, reject in
+            self.documentDataStore.find("report", options: nil) {
+                switch $0 {
+                case .success(let document):
+                    fulfill(document)
+                case .failure(let error):
+                    if let error = error as? Kinvey.Error {
+                        switch error {
+                        case .unknownJsonError(let httpResponse, _, _):
+                            if httpResponse?.statusCode == 404 {
+                                let image = OCKDocumentElementImage(image: UIImage(named: "AppIcon")!)
+                                
+                                let subtitle = OCKDocumentElementSubtitle(subtitle: "First subtitle")
+                                
+                                let paragraph = OCKDocumentElementParagraph(content: "Lorem ipsum dolor sit amet, vim primis noster sententiae ne, et albucius apeirian accusata mea, vim at dicunt laoreet. Eu probo omnes inimicus ius, duo at veritus alienum. Nostrud facilisi id pro. Putant oporteat id eos. Admodum antiopam mel in, at per everti quaeque. Lorem ipsum dolor sit amet, vim primis noster sententiae ne, et albucius apeirian accusata mea, vim at dicunt laoreet. Eu probo omnes inimicus ius, duo at veritus alienum. Nostrud facilisi id pro. Putant oporteat id eos. Admodum antiopam mel in, at per everti quaeque. Lorem ipsum dolor sit amet, vim primis noster sententiae ne, et albucius apeirian accusata mea, vim at dicunt laoreet. Eu probo omnes inimicus ius, duo at veritus alienum. Nostrud facilisi id pro. Putant oporteat id eos. Admodum antiopam mel in, at per everti quaeque.")
+                                
+                                let table = OCKDocumentElementTable(headers: ["1st Column", "2nd Column"], rows: [["A1", "B1"], ["A2", "B2"]])
+                                
+                                let chart1Series1 = OCKBarSeries.init(title: "Chart #1 Series #1", values: [20,04,60,40], valueLabels: ["20","04","60","40"], tintColor: UIColor.cyan)
+                                let chart1Series2 = OCKBarSeries.init(title: "Chart #1 Series #2", values: [5,15,35,16], valueLabels: ["5","15","35","16"], tintColor: UIColor.magenta)
+                                let chart1 = OCKBarChart.init(title: "Chart #1", text: "Chart #1 Description", tintColor: UIColor.gray, axisTitles: ["ABC","DEF","GHI","JKL"], axisSubtitles: ["123","456","789","012"], dataSeries: [chart1Series1, chart1Series2])
+                                
+                                let chart = OCKDocumentElementChart(chart: chart1)
+                                
+                                let document = OCKDocument(title: "Sample Document Title", elements: [image, subtitle, paragraph, table, chart])
+                                document.pageHeader = "App Name: OCKSample, User Name: John Appleseed"
+                                
+                                let kDocument = Document(document)
+                                kDocument.entityId = "report"
+                                self.documentDataStore.save(kDocument, options: nil) {
+                                    switch $0 {
+                                    case .success(let document):
+                                        fulfill(document)
+                                    case .failure(let error):
+                                        reject(error)
+                                    }
+                                }
+                            } else {
+                                reject(error)
+                            }
+                        default:
+                            reject(error)
+                        }
+                    } else {
+                        reject(error)
+                    }
+                }
+            }
+        }
+    }
 
     fileprivate func createConnectViewController() -> OCKConnectViewController {
         let viewController = OCKConnectViewController.init(contacts: nil, patient: nil)
@@ -394,11 +448,12 @@ extension RootViewController: OCKConnectViewControllerDelegate {
     
     /// Called when the user taps a contact in the `OCKConnectViewController`.
     func connectViewController(_ connectViewController: OCKConnectViewController, didSelectShareButtonFor contact: OCKContact, presentationSourceView sourceView: UIView?) {
-        let document = sampleData.generateSampleDocument()
-        document.createPDFData {(data, error) in
-            let activityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-            DispatchQueue.main.async {
-                self.present(activityViewController, animated: true, completion: nil)
+        loadDocument().then { (document) -> Void in
+            OCKDocument(document).createPDFData {(data, error) in
+                let activityViewController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+                DispatchQueue.main.async {
+                    self.present(activityViewController, animated: true, completion: nil)
+                }
             }
         }
         
